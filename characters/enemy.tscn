@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwy7qswwl02yt"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_erkyl"]
+[ext_resource type="FontFile" uid="uid://cuck8i8knhtlt" path="res://other_assets/fonts/VCRosdNEUE.ttf" id="2_3k012"]
+[ext_resource type="PackedScene" uid="uid://byaf6ofgf8m1f" path="res://Hitboxes and Hurtboxes/hitbox.tscn" id="3_o6y2d"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://Hitboxes and Hurtboxes/hurtbox.tscn" id="4_4uo55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx7y5"]
+size = Vector2(160, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ude5v"]
+size = Vector2(158, 32)
+
+[node name="enemy" type="RigidBody2D"]
+script = ExtResource("1_erkyl")
+
+[node name="text" type="Label" parent="."]
+offset_right = 163.0
+offset_bottom = 49.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3k012")
+text = "Ini adalah percobaan
+pertama"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hitbox" parent="." instance=ExtResource("3_o6y2d")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(82, 23.5)
+shape = SubResource("RectangleShape2D_lx7y5")
+debug_color = Color(0.609252, 0, 0.188171, 0.203922)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_4uo55")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(81, 24)
+shape = SubResource("RectangleShape2D_ude5v")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

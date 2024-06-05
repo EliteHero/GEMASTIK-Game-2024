@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://capnp2t4mnoth"]
+
+[ext_resource type="Script" path="res://other_assets/cutscene_control.gd" id="1_qop0s"]
+[ext_resource type="PackedScene" uid="uid://nthhwfk7525f" path="res://cutscenes/cutscene_2.tscn" id="1_wm8jg"]
+[ext_resource type="PackedScene" uid="uid://bhwv4m3b3bwsf" path="res://cutscenes/cutscene_1.tscn" id="2_kt0fg"]
+[ext_resource type="PackedScene" uid="uid://d1o16sf6h5o70" path="res://other_assets/transitions.tscn" id="3_f6kit"]
+
+[node name="cutscene_control" type="Node2D"]
+script = ExtResource("1_qop0s")
+
+[node name="cutscene2" parent="." instance=ExtResource("1_wm8jg")]
+
+[node name="cutscene1" parent="." instance=ExtResource("2_kt0fg")]
+
+[node name="transitions" parent="." instance=ExtResource("3_f6kit")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrck1mftq0na"]
+
+[ext_resource type="PackedScene" uid="uid://chptx7380md2v" path="res://world/brain_arena.tscn" id="1_1kr1j"]
+[ext_resource type="PackedScene" uid="uid://cnlqgfwc345k1" path="res://characters/amara_arena.tscn" id="2_nnibe"]
+
+[node name="adu_argumen1" type="Node2D"]
+
+[node name="BrainArena" parent="." instance=ExtResource("1_1kr1j")]
+
+[node name="amara_arena" parent="." instance=ExtResource("2_nnibe")]
