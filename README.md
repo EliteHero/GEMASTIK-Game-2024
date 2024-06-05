@@ -4,7 +4,6 @@ A project for GEMASTIK 2024. GEMASTIK is an annual Indonesian IT competition bet
 # Contributors
 1. Bagas Satrio - Game Designer, Programmer
 
-2. Ibnu Hanif Salsabila - Environment Artist, UI/UX Designer
+2. Ibnu Hanif Salsabila - UI/UX Designer, Environment Artist
 
 3. Nazwaqika Dyah Arega Ardi - Character Designer, Sprite Artist
-
