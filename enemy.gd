@@ -1,22 +1,21 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-const SPEED = 1500
-const SLOW = 200
+const SPEED = 25
 
-enum {
-	SPEEDING,
-	SLOWING
-}
-
-var state = SPEEDING
-
-@onready var player = get_tree().get_nodes_in_group("player")[0]
+var player_position
+var mark
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	player = get_parent().get_node("amara_arena")
+	player_position = player.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	position += (player_position - position)/SPEED
+	move_and_slide()
+	
+	if position.distance_to(player_position) < 1:
+		get_tree().call_group("AduArgumen", "new_argument")
+		queue_free()

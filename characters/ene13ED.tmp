@@ -12,14 +12,11 @@ size = Vector2(160, 35)
 size = Vector2(158, 32)
 
 [node name="enemy" type="CharacterBody2D" groups=["enemy"]]
-position = Vector2(-1, 0)
 script = ExtResource("1_erkyl")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -148.0
-offset_top = -28.0
-offset_right = 152.0
-offset_bottom = 37.0
+[node name="text" type="Label" parent="."]
+offset_right = 163.0
+offset_bottom = 49.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3k012")
 theme_override_font_sizes/font_size = 30
@@ -29,7 +26,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Hitbox" parent="." instance=ExtResource("3_o6y2d")]
-position = Vector2(-150, -30)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(82, 23.5)
@@ -37,7 +33,6 @@ shape = SubResource("RectangleShape2D_lx7y5")
 debug_color = Color(0.609252, 0, 0.188171, 0.203922)
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_4uo55")]
-position = Vector2(-149, -32)
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(81, 24)

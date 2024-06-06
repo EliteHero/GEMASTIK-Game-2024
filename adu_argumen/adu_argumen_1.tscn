@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnrck1mftq0na"]
+[gd_scene load_steps=5 format=3 uid="uid://bnrck1mftq0na"]
 
 [ext_resource type="PackedScene" uid="uid://chptx7380md2v" path="res://world/brain_arena.tscn" id="1_1kr1j"]
+[ext_resource type="Script" path="res://adu_argumen/adu_argumen_1.gd" id="1_ps3c0"]
 [ext_resource type="PackedScene" uid="uid://cnlqgfwc345k1" path="res://characters/amara_arena.tscn" id="2_nnibe"]
 
-[node name="adu_argumen1" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_ly83c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1965, -1445, 0, 0, 0, 0, 1769, -1489, 0, 0, 0, 0, 1801, 1235, 0, 0, 0, 0, -1965, 1222, 0, 0, 0, 0, -1965, -1445)
+}
+point_count = 5
+
+[node name="adu_argumen1" type="Node2D" groups=["AduArgumen"]]
+script = ExtResource("1_ps3c0")
 
 [node name="BrainArena" parent="." instance=ExtResource("1_1kr1j")]
 
 [node name="amara_arena" parent="." instance=ExtResource("2_nnibe")]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ly83c")
+
+[node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-1965, -1445)
+rotation = -0.0117831
