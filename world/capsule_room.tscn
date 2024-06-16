@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://brhndhmohet6j"]
+
+[ext_resource type="Texture2D" uid="uid://bhh0mkb0o3kfr" path="res://world/world_assets/Ruang Kapsul-fix.png" id="1_3b8bi"]
+[ext_resource type="PackedScene" uid="uid://m2pws81mwvfk" path="res://world/object_time_panel.tscn" id="2_nq65u"]
+[ext_resource type="PackedScene" uid="uid://rp3djj7ee0yy" path="res://world/object_corpse.tscn" id="3_unq0r"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="4_nbmag"]
+
+[node name="capsule_room" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_3b8bi")
+
+[node name="object_time_panel" parent="." instance=ExtResource("2_nq65u")]
+position = Vector2(394, -285)
+scale = Vector2(4, 4)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-489, -182, 271, -182, 273, -404, 540, -394, 537, 477, 352, 480, 347, 713, 156, 991, 153, 1159, -101, 1164, -96, 971, -287, 705, -291, 484, -474, 486, -469, -182, -634, -142, -635, 1212, 754, 1231, 750, -586, -530, -586)
+
+[node name="object_corpse" parent="." instance=ExtResource("3_unq0r")]
+position = Vector2(-143, 641)
+scale = Vector2(4, 4)
+
+[node name="amara_overworld" parent="." instance=ExtResource("4_nbmag")]

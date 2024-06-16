@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://rp3djj7ee0yy"]
+
+[ext_resource type="Script" path="res://world/object_corpse.gd" id="1_1yf1e"]
+[ext_resource type="Texture2D" uid="uid://c4cd7itqqwkyk" path="res://world/object_assets/dr surya.png" id="1_yuwsf"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="2_yoxle"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_754w4"]
+radius = 27.0185
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_olqw5"]
+radius = 26.0
+
+[node name="object_corpse" type="StaticBody2D"]
+script = ExtResource("1_1yf1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yuwsf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -18.0
+offset_right = 19.0
+offset_bottom = 22.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_754w4")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_yoxle")]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_olqw5")
+debug_color = Color(0.951292, 0.222261, 0, 0.42)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

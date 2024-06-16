@@ -11,14 +11,12 @@ func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 	
 func _on_animation_finished(anim_name):
-	if anim_name == "fade_to_black":
+	if anim_name == "fade_to_white":
 		on_transition_finished.emit()
-		animation_player.play("fade_from_black")
-		print("I got called again!")
-	elif anim_name == "fade_from_black":
+		animation_player.play("fade_from_white")
+	elif anim_name == "fade_from_white":
 		color_rect.visible = false
 	
 func transition():
 	color_rect.visible = true
-	animation_player.play("fade_to_black")
-	print("I just got called!")
+	animation_player.play("fade_to_white")

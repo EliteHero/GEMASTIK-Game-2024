@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://caik3pwjk5evs"]
+
+[ext_resource type="Script" path="res://cutscenes/cutscene_3.gd" id="1_2vo0f"]
+[ext_resource type="Texture2D" uid="uid://bsh2ixeprhxhe" path="res://cutscenes/cutscene_assets/Bhaskara EcoNihilist.png" id="2_2twkl"]
+[ext_resource type="Script" path="res://cutscenes/Sprite2D.gd" id="3_gvrd0"]
+
+[node name="cutscene3" type="CanvasLayer"]
+script = ExtResource("1_2vo0f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(323, 189)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_2twkl")
+script = ExtResource("3_gvrd0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

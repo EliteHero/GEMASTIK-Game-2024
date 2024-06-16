@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci8eced1esfu8"]
+
+[ext_resource type="Script" path="res://other_assets/UI/hpStat.gd" id="1_wn0dl"]
+[ext_resource type="Texture2D" uid="uid://dy3lw6xecu7b6" path="res://other_assets/UI/heart-sprite-white-export.png" id="2_g478x"]
+
+[node name="hpStat" type="Control" groups=["HpStat"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wn0dl")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_top = 83.0
+offset_bottom = 133.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_g478x")
+centered = false
+vframes = 9

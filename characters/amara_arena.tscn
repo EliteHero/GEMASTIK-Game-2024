@@ -1,7 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://cnlqgfwc345k1"]
+[gd_scene load_steps=36 format=3 uid="uid://cnlqgfwc345k1"]
 
 [ext_resource type="Texture2D" uid="uid://s8yobt0jie8v" path="res://characters/chara_sprites/Amara Idle & Run - ok-Sheet-export.png" id="1_ch2fi"]
 [ext_resource type="Script" path="res://characters/amara_arena.gd" id="1_noyjy"]
+[ext_resource type="Texture2D" uid="uid://cqlxfc1605jil" path="res://Shadows/MediumShadow.png" id="2_otmhf"]
+[ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3nt7l"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="4_oask7"]
+[ext_resource type="PackedScene" uid="uid://ci8eced1esfu8" path="res://other_assets/UI/hpStat.tscn" id="5_n6fyp"]
 
 [sub_resource type="Animation" id="Animation_v0dos"]
 resource_name = "IdleDown"
@@ -85,6 +89,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_xj5jy"]
 resource_name = "RunDown"
@@ -167,6 +183,42 @@ _data = {
 "RunUp": SubResource("Animation_lwltf")
 }
 
+[sub_resource type="Animation" id="Animation_ijj1y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p35u1"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dn060"]
+_data = {
+"RESET": SubResource("Animation_ijj1y"),
+"hurt": SubResource("Animation_p35u1")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jchpu"]
 animation = &"IdleLeft"
 
@@ -233,9 +285,18 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 radius = 3.8
 height = 9.2
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1aq8i"]
+radius = 4.6
+height = 27.2
+
 [node name="amara_arena" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(5, 5)
+collision_layer = 2
 script = ExtResource("1_noyjy")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 14.6)
+texture = ExtResource("2_otmhf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ch2fi")
@@ -247,6 +308,12 @@ libraries = {
 "": SubResource("AnimationLibrary_way48")
 }
 
+[node name="HurtAnimationPlayer" type="AnimationPlayer" parent="."]
+process_priority = 1
+libraries = {
+"": SubResource("AnimationLibrary_dn060")
+}
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_e0kdg")
@@ -255,8 +322,28 @@ parameters/Idle/blend_position = Vector2(-0.00160003, 0.0119047)
 parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_3nt7l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.45342e-14, 11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6lew1")
+
+[node name="PlayerHurtbox" parent="." instance=ExtResource("4_oask7")]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="PlayerHurtbox" index="0"]
+position = Vector2(-0.6, 0.599999)
+shape = SubResource("CapsuleShape2D_1aq8i")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_n6fyp")]
+
+[node name="iframe_timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_area_entered"]
+[connection signal="timeout" from="iframe_timer" to="." method="_on_iframe_timer_timeout"]
+
+[editable path="PlayerHurtbox"]

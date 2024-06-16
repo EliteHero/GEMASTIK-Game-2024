@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://nthhwfk7525f"]
 
 [ext_resource type="Script" path="res://cutscenes/cutscene_2.gd" id="1_bvefr"]
-[ext_resource type="Texture2D" uid="uid://d3xko4x1hatlq" path="res://cutscenes/cutscene_assets/cutscene2.png" id="1_ltwa0"]
+[ext_resource type="Texture2D" uid="uid://6277vhf4n1aa" path="res://cutscenes/cutscene_assets/cutscene2.2.png" id="2_8px5e"]
 
 [node name="cutscene2" type="CanvasLayer"]
 script = ExtResource("1_bvefr")
@@ -12,5 +12,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ltwa0")
+texture = ExtResource("2_8px5e")
 expand_mode = 2

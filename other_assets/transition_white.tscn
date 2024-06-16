@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1o16sf6h5o70"]
+[gd_scene load_steps=6 format=3 uid="uid://cmkjqun4kchoi"]
 
-[ext_resource type="Script" path="res://other_assets/transitions.gd" id="1_mom50"]
+[ext_resource type="Script" path="res://other_assets/transition_white.gd" id="1_gg17r"]
 
-[sub_resource type="Animation" id="Animation_q3qdx"]
+[sub_resource type="Animation" id="Animation_k6432"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -17,13 +17,13 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_xdlek"]
-resource_name = "fade_from_black"
+[sub_resource type="Animation" id="Animation_35exm"]
+resource_name = "fade_from_white"
 length = 0.60001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,13 +33,13 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_7mwe1"]
-resource_name = "fade_to_black"
+[sub_resource type="Animation" id="Animation_5tgrc"]
+resource_name = "fade_to_white"
 length = 0.60001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,26 +49,26 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5ulq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ov84h"]
 _data = {
-"RESET": SubResource("Animation_q3qdx"),
-"fade_from_black": SubResource("Animation_xdlek"),
-"fade_to_black": SubResource("Animation_7mwe1")
+"RESET": SubResource("Animation_k6432"),
+"fade_from_white": SubResource("Animation_35exm"),
+"fade_to_white": SubResource("Animation_5tgrc")
 }
 
-[node name="transitions" type="CanvasLayer"]
-script = ExtResource("1_mom50")
+[node name="transitionWhite" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_gg17r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_g5ulq")
+"": SubResource("AnimationLibrary_ov84h")
 }

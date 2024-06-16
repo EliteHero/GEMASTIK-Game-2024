@@ -11,6 +11,10 @@ enum {
 
 var state = MOVE
 
+@onready var hurtAnim = $HurtAnimationPlayer
+@onready var camera = $Camera2D
+@onready var hurtbox = $PlayerHurtbox/CollisionShape2D
+@onready var iframeTimer = $iframe_timer
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
@@ -42,3 +46,15 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
 	move_and_slide()
+
+func iframe_on():
+	iframeTimer.start(1)
+	hurtbox.disabled = true
+	
+func _on_iframe_timer_timeout():
+	hurtbox.disabled = false
+
+func _on_player_hurtbox_area_entered(area):
+	hurtAnim.play("hurt")
+	camera.shake_camera()
+	get_tree().call_group("HpStat", "take_damage")

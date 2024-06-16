@@ -5,15 +5,37 @@
 "color": Color(1, 1, 1, 1),
 "custom_info": {
 "sound_mood_default": "",
-"sound_moods": {},
-"style": ""
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.2,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://characters/chara_sfx/Amara_sfx",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
 },
-"default_portrait": "",
+"style": "default"
+},
+"default_portrait": "mood1",
 "description": "",
 "display_name": "Amara",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
-"portraits": {},
+"portraits": {
+"mood1": {
+"export_overrides": {
+"image": "\"\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Mood 1"
+}
+},
 "scale": 1.0
 }

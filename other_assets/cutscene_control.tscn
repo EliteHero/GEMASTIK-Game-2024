@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://capnp2t4mnoth"]
+[gd_scene load_steps=7 format=3 uid="uid://capnp2t4mnoth"]
 
 [ext_resource type="Script" path="res://other_assets/cutscene_control.gd" id="1_qop0s"]
 [ext_resource type="PackedScene" uid="uid://nthhwfk7525f" path="res://cutscenes/cutscene_2.tscn" id="1_wm8jg"]
 [ext_resource type="PackedScene" uid="uid://bhwv4m3b3bwsf" path="res://cutscenes/cutscene_1.tscn" id="2_kt0fg"]
-[ext_resource type="PackedScene" uid="uid://d1o16sf6h5o70" path="res://other_assets/transitions.tscn" id="3_f6kit"]
+[ext_resource type="PackedScene" uid="uid://bg6lhxsnrriqr" path="res://cutscenes/cutscene_4.tscn" id="2_tr3to"]
+[ext_resource type="PackedScene" uid="uid://caik3pwjk5evs" path="res://cutscenes/cutscene_3.tscn" id="2_wl2ci"]
+[ext_resource type="PackedScene" uid="uid://cmkjqun4kchoi" path="res://other_assets/transition_white.tscn" id="5_sx178"]
 
 [node name="cutscene_control" type="Node2D"]
 script = ExtResource("1_qop0s")
 
-[node name="cutscene2" parent="." instance=ExtResource("1_wm8jg")]
+[node name="transitionWhite" parent="." instance=ExtResource("5_sx178")]
 
-[node name="cutscene1" parent="." instance=ExtResource("2_kt0fg")]
+[node name="cutscene1" parent="transitionWhite" instance=ExtResource("2_kt0fg")]
 
-[node name="transitions" parent="." instance=ExtResource("3_f6kit")]
+[node name="cutscene2" parent="transitionWhite" instance=ExtResource("1_wm8jg")]
+
+[node name="cutscene3" parent="transitionWhite" instance=ExtResource("2_wl2ci")]
+
+[node name="cutscene4" parent="transitionWhite" instance=ExtResource("2_tr3to")]
