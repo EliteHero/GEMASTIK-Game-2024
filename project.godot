@@ -20,6 +20,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 TransitionWhite="*res://other_assets/transition_white.tscn"
 TransitionBlack="*res://other_assets/transition_black.tscn"
 GlobalEventListener="*res://GlobalEventListener.gd"
+TransitionPause="*res://other_assets/transition_pause.tscn"
 
 [dialogic]
 
