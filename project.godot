@@ -25,16 +25,23 @@ GlobalEventListener="*res://GlobalEventListener.gd"
 
 directories/dch_directory={
 "Amara": "res://dialogues/dl_characters/Amara.dch",
+"Nova": "res://dialogues/dl_characters/Nova.dch",
+"Robot": "res://dialogues/dl_characters/Robot.dch",
 "unknown": "res://dialogues/dl_characters/unknown.dch"
 }
 directories/dtl_directory={
+"boundary1": "res://dialogues/boundary1.dtl",
 "corpse": "res://dialogues/corpse.dtl",
 "cutscene1": "res://dialogues/cutscene1.dtl",
 "cutscene2": "res://dialogues/cutscene2.dtl",
 "cutscene4": "res://dialogues/cutscene4.dtl",
 "cutscene5": "res://dialogues/cutscene5.dtl",
 "cutscene6": "res://dialogues/cutscene6.dtl",
+"cutscene7": "res://dialogues/cutscene7.dtl",
+"cutscene8": "res://dialogues/cutscene8.dtl",
 "has_interacted": "res://dialogues/has_interacted.dtl",
+"interactable_nova1": "res://dialogues/interactable_nova1.dtl",
+"interactable_nova2": "res://dialogues/interactable_nova2.dtl",
 "interlude": "res://dialogues/interlude.dtl",
 "time_panel": "res://dialogues/time_panel.dtl"
 }
@@ -124,6 +131,16 @@ Interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(292, 21),"global_position":Vector2(296, 62),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+nextItem={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
+prev_item={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"echo":false,"script":null)
 ]
 }
 

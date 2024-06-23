@@ -10,6 +10,7 @@ enum {
 }
 
 var state = MOVE
+var attacking = false
 
 @onready var hurtAnim = $HurtAnimationPlayer
 @onready var camera = $Camera2D
@@ -18,8 +19,10 @@ var state = MOVE
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var bulletPivot = $BulletPivot
 
 func _ready():
+	GlobalEventListener.set_player_instance(self)
 	animationTree.active = true
 
 func _physics_process(delta):
@@ -27,7 +30,7 @@ func _physics_process(delta):
 		MOVE:
 			move_state(delta)
 		ATTACK:
-			pass
+			attack_state(delta)
 	
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -46,6 +49,35 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("Attack"):
+		state = ATTACK
+
+func attack_state(delta):
+	velocity = Vector2.ZERO
+	animationState.travel("Attack")
+	
+	var mouse_pos = get_global_mouse_position()
+	var direction = mouse_pos - global_position
+	bulletPivot.rotation = direction.angle()
+	
+	if attacking == false:
+		get_tree().call_group("AduArgumen", "set_switch_item", false)
+		attacking = true
+		var bulletScene = preload("res://effect_areas/bullet.tscn")
+		var bullet = bulletScene.instantiate()
+		bullet.global_position = bulletPivot.global_position
+		bullet.rotation = bulletPivot.rotation
+		bullet.global_position = global_position
+		await get_tree().create_timer(0.3).timeout 
+		get_tree().root.add_child(bullet)
+		
+		get_parent().player_attack()
+	
+func attack_finished():
+	state = MOVE
+	get_tree().call_group("AduArgumen", "set_switch_item", true)
+	attacking = false
 
 func iframe_on():
 	iframeTimer.start(1)
@@ -58,3 +90,9 @@ func _on_player_hurtbox_area_entered(area):
 	hurtAnim.play("hurt")
 	camera.shake_camera()
 	get_tree().call_group("HpStat", "take_damage")
+	
+	if area.is_in_group("Bullet"):
+		get_tree().call_group("Bullet", "player_shot")
+
+func get_player_position():
+	return global_position

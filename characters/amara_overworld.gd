@@ -32,6 +32,8 @@ func _physics_process(delta):
 					hitbox.disabled = false
 					await get_tree().create_timer(1).timeout
 					hitbox.disabled = true
+			elif is_talking == true:
+				animationState.travel("Idle")
 		CUTSCENE:
 			cutscene_state(delta)
 	
@@ -86,7 +88,10 @@ func is_talking_false():
 	is_talking = false
 
 func hitbox_disabled():
-	hitbox.disabled = true
+	hitbox.set_deferred("disabled", true)
 	
 func eternal_hitbox_disabled(status):
 	eternal_hitbox_status = status
+
+func set_player_position(x,y):
+	global_position = Vector2(x,y)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dte6lpkjokorq"]
+
+[ext_resource type="PackedScene" uid="uid://brhndhmohet6j" path="res://world/capsule_room.tscn" id="1_j4i1h"]
+[ext_resource type="Script" path="res://cutscenes/cutscene_8.gd" id="1_vnhwn"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_iwxc0"]
+[ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_gmmbm"]
+
+[node name="cutscene_8" type="Node2D"]
+script = ExtResource("1_vnhwn")
+
+[node name="capsule_room" parent="." instance=ExtResource("1_j4i1h")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_iwxc0")]
+position = Vector2(-25, 930)
+
+[node name="Nova" parent="." instance=ExtResource("3_gmmbm")]
+position = Vector2(82, 939)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -1,11 +1,131 @@
-[gd_scene load_steps=36 format=3 uid="uid://cnlqgfwc345k1"]
+[gd_scene load_steps=47 format=3 uid="uid://cnlqgfwc345k1"]
 
-[ext_resource type="Texture2D" uid="uid://s8yobt0jie8v" path="res://characters/chara_sprites/Amara Idle & Run - ok-Sheet-export.png" id="1_ch2fi"]
 [ext_resource type="Script" path="res://characters/amara_arena.gd" id="1_noyjy"]
 [ext_resource type="Texture2D" uid="uid://cqlxfc1605jil" path="res://Shadows/MediumShadow.png" id="2_otmhf"]
+[ext_resource type="Texture2D" uid="uid://cx57gdi3abvdy" path="res://characters/chara_sprites/amara complete edition.png" id="3_sb5h5"]
 [ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_3nt7l"]
 [ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="4_oask7"]
 [ext_resource type="PackedScene" uid="uid://ci8eced1esfu8" path="res://other_assets/UI/hpStat.tscn" id="5_n6fyp"]
+
+[sub_resource type="Animation" id="Animation_430pm"]
+resource_name = "AttackDown"
+length = 0.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4deq8"]
+resource_name = "AttackLeft"
+length = 0.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 71, 72, 73, 74, 75]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5ab6u"]
+resource_name = "AttackRight"
+length = 0.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5pb3v"]
+resource_name = "AttackUp"
+length = 0.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 55]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_v0dos"]
 resource_name = "IdleDown"
@@ -172,6 +292,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_way48"]
 _data = {
+"AttackDown": SubResource("Animation_430pm"),
+"AttackLeft": SubResource("Animation_4deq8"),
+"AttackRight": SubResource("Animation_5ab6u"),
+"AttackUp": SubResource("Animation_5pb3v"),
 "IdleDown": SubResource("Animation_v0dos"),
 "IdleLeft": SubResource("Animation_ivjgk"),
 "IdleRight": SubResource("Animation_65wrl"),
@@ -218,6 +342,29 @@ _data = {
 "RESET": SubResource("Animation_ijj1y"),
 "hurt": SubResource("Animation_p35u1")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iel5w"]
+animation = &"AttackLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lymjy"]
+animation = &"AttackDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ulayh"]
+animation = &"AttackRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5a84d"]
+animation = &"AttackUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7oi31"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_iel5w")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_lymjy")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ulayh")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_5a84d")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jchpu"]
 animation = &"IdleLeft"
@@ -274,12 +421,19 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kumwg"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2g685"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8bjr5"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e0kdg"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_7oi31")
+states/Attack/position = Vector2(343, 174)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_tgd2n")
 states/Idle/position = Vector2(343, 100)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_pbupq")
 states/Run/position = Vector2(489, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pmnrd"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_dhxsh"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_kumwg")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_pmnrd"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_dhxsh"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_kumwg"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_2g685"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_8bjr5")]
+graph_offset = Vector2(0, 60.1838)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lew1"]
 radius = 3.8
@@ -299,9 +453,9 @@ position = Vector2(0, 14.6)
 texture = ExtResource("2_otmhf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ch2fi")
+texture = ExtResource("3_sb5h5")
 hframes = 10
-vframes = 4
+vframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -318,6 +472,7 @@ libraries = {
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_e0kdg")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(-0.00160003, 0.0119047)
 parameters/Run/blend_position = Vector2(0, 0)
 
@@ -342,6 +497,8 @@ debug_color = Color(1, 1, 1, 0.42)
 [node name="Control" parent="CanvasLayer" instance=ExtResource("5_n6fyp")]
 
 [node name="iframe_timer" type="Timer" parent="."]
+
+[node name="BulletPivot" type="Marker2D" parent="."]
 
 [connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_area_entered"]
 [connection signal="timeout" from="iframe_timer" to="." method="_on_iframe_timer_timeout"]

@@ -1,0 +1,29 @@
+THUD
+[signal arg="color_off"]
+[wait time="1.0"]
+Amara (mood1): M-maaf!
+Amara (mood1): [color=drak_slate_gray](Sebuah robot?)[/color]
+[signal arg="nova_move"]
+[wait time="1.0"]
+[signal arg="amara_move"]
+Amara (mood1): H-hey tunggu! Aku butuh bantuanmu-
+Robot (mood1): ...
+Robot (mood1): AHHHHHHHHHHHHHHHHHHHHHHHHH
+[signal arg="nova_move_down"]
+Amara (mood1): A-apa?
+Robot (mood1): Kamu pembunuh!
+Robot (mood1): Aku akan membawamu ke Kepala Robot! Dan kamu akan mendapatkan hukuman!
+Amara (mood1): Hey, tunggu dulu! Kau gak bisa nuduh diriku begitu saja! Apa dasar dari pemikiranmu?!
+Robot (mood1): Dasar? Aku tidak perlu dasar untuk kasus ini!
+Robot (mood1): Lihatlah di sekelilingmu, apakah kamu melihat ada orang lain yang bisa melakukan hal keji ini?!
+Amara (mood1): Itu...
+Amara (mood1): Ugh, yang penting, aku gak membunuhnya! Aku hanya menemukannya saat aku keluar dari kapsul!
+Robot (mood1): Jadi, kamu keluar dari kapsul, dan membunuhnya?! Apakah itu maksudmu?!
+Amara (mood1): Bukan itu! Ugh...
+Amara (mood1): [color=drak_slate_gray](Apa-apaan ini? Aku baru saja terbangun dan langsung dituduh atas pembunuhan?)[/color]
+Amara (mood1): Setidaknya biarkan aku menginvestigasi area ini supaya aku bisa membela diriku!
+Robot (mood1): ...Hmm.
+Robot (mood1): Baiklah, tetapi ingat. Aku telah melaporkan dirimu dan robot-robot penjaga akan segera datang ke tempat ini.
+Robot (mood1): Kamu hanya aku perbolehkan untuk menginvestigasi ruangan ini saja. Jika kamu berusaha untuk keluar atau kabur, maka aku sendiri yang akan memberhentikanmu!
+Amara (mood1): T-terima kasih!
+Tekan E atau LMB untuk berinteraksi dengan beberapa objek

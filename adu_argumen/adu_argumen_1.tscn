@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnrck1mftq0na"]
+[gd_scene load_steps=6 format=3 uid="uid://bnrck1mftq0na"]
 
 [ext_resource type="PackedScene" uid="uid://chptx7380md2v" path="res://world/brain_arena.tscn" id="1_1kr1j"]
 [ext_resource type="Script" path="res://adu_argumen/adu_argumen_1.gd" id="1_ps3c0"]
 [ext_resource type="PackedScene" uid="uid://cnlqgfwc345k1" path="res://characters/amara_arena.tscn" id="2_nnibe"]
+[ext_resource type="PackedScene" uid="uid://64v55b68xe0t" path="res://other_assets/UI/inventory_ui.tscn" id="4_g0uys"]
 
 [sub_resource type="Curve2D" id="Curve2D_ly83c"]
 _data = {
@@ -23,3 +24,7 @@ curve = SubResource("Curve2D_ly83c")
 [node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
 position = Vector2(-1965, -1445)
 rotation = -0.0117831
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_ui" parent="CanvasLayer" instance=ExtResource("4_g0uys")]

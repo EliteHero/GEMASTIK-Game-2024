@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr5ofsondvhnj"]
+
+[ext_resource type="Texture2D" uid="uid://b1te58s7701c1" path="res://cutscenes/cutscene_assets/cutscene7.png" id="1_56xlo"]
+[ext_resource type="Script" path="res://cutscenes/cutscene_7.gd" id="1_ajybe"]
+
+[node name="cutscene7" type="CanvasLayer"]
+script = ExtResource("1_ajybe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_56xlo")
+expand_mode = 2

@@ -1,0 +1,176 @@
+[gd_scene load_steps=20 format=3 uid="uid://cqaakjqh6l34w"]
+
+[ext_resource type="Script" path="res://world/interactable_nova.gd" id="1_3egj6"]
+[ext_resource type="Texture2D" uid="uid://8h00sat6g0ln" path="res://Shadows/SmallShadow.png" id="2_7ql52"]
+[ext_resource type="Texture2D" uid="uid://d1mo4hepc6c4f" path="res://characters/chara_sprites/Nova_fix.png" id="3_cfl8u"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="4_8hbvv"]
+
+[sub_resource type="Animation" id="Animation_plhxl"]
+resource_name = "Down"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_fpe1a"]
+resource_name = "Left"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_tg6m6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i116u"]
+resource_name = "Right"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 15, 14]
+}
+
+[sub_resource type="Animation" id="Animation_fvk7y"]
+resource_name = "Up"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 7, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0mrci"]
+_data = {
+"Down": SubResource("Animation_plhxl"),
+"Left": SubResource("Animation_fpe1a"),
+"RESET": SubResource("Animation_tg6m6"),
+"Right": SubResource("Animation_i116u"),
+"Up": SubResource("Animation_fvk7y")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6vc4"]
+animation = &"Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3udtc"]
+animation = &"Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kee2h"]
+animation = &"Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7bwi"]
+animation = &"Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3aqb0"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_u6vc4")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_3udtc")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_kee2h")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_a7bwi")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ite5v"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wvu5i"]
+states/Move/node = SubResource("AnimationNodeBlendSpace2D_3aqb0")
+states/Move/position = Vector2(354, 100)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_ite5v")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3j7k6"]
+radius = 7.4
+height = 25.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7lax"]
+size = Vector2(18.8, 24.2)
+
+[node name="interactable_nova" type="StaticBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_3egj6")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 15.6)
+texture = ExtResource("2_7ql52")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_cfl8u")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0mrci")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_wvu5i")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = Vector2(-0.00153375, 0.0132158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.30926e-14, 9.4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3j7k6")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_8hbvv")]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-0.2, 2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_e7lax")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://rp3djj7ee0yy"]
+[gd_scene load_steps=7 format=3 uid="uid://rp3djj7ee0yy"]
 
 [ext_resource type="Script" path="res://world/object_corpse.gd" id="1_1yf1e"]
 [ext_resource type="Texture2D" uid="uid://c4cd7itqqwkyk" path="res://world/object_assets/dr surya.png" id="1_yuwsf"]
+[ext_resource type="Texture2D" uid="uid://7jt2w7cb8bi2" path="res://Shadows/LargeShadow.png" id="2_xhck6"]
 [ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="2_yoxle"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_754w4"]
@@ -12,6 +13,11 @@ radius = 26.0
 
 [node name="object_corpse" type="StaticBody2D"]
 script = ExtResource("1_1yf1e")
+
+[node name="SpriteShadow" type="Sprite2D" parent="."]
+position = Vector2(1, 4)
+scale = Vector2(1.975, 1.975)
+texture = ExtResource("2_xhck6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yuwsf")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://64v55b68xe0t"]
+[gd_scene load_steps=6 format=3 uid="uid://64v55b68xe0t"]
 
 [ext_resource type="Texture2D" uid="uid://rgti8ufxhbfa" path="res://other_assets/UI/inventory_container.png" id="1_aj1y7"]
 [ext_resource type="PackedScene" uid="uid://cxn8m8opylexg" path="res://other_assets/UI/item_slot.tscn" id="1_bjbgi"]
+[ext_resource type="Script" path="res://other_assets/UI/inventory_ui.gd" id="1_l25ys"]
+[ext_resource type="FontFile" uid="uid://cuck8i8knhtlt" path="res://other_assets/fonts/VCRosdNEUE.ttf" id="4_7juwm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2iwh"]
 texture = ExtResource("1_aj1y7")
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l25ys")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -21,15 +24,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -302.0
+offset_top = -164.0
+offset_right = -100.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(3, 3)
 theme_override_styles/panel = SubResource("StyleBoxTexture_t2iwh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
 
 [node name="item_slot" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_bjbgi")]
 layout_mode = 2
@@ -50,3 +57,23 @@ layout_mode = 2
 
 [node name="item_slot6" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_bjbgi")]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -215.0
+offset_right = 57.5
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.875295, 0.875295, 1)
+theme_override_colors/font_shadow_color = Color(0.31982, 0.527251, 1, 1)
+theme_override_fonts/font = ExtResource("4_7juwm")
+theme_override_font_sizes/font_size = 40
+text = "None"
+horizontal_alignment = 1

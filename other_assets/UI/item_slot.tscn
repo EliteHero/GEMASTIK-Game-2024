@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://cxn8m8opylexg"]
+[gd_scene load_steps=2 format=3 uid="uid://cxn8m8opylexg"]
+
+[ext_resource type="Texture2D" uid="uid://b0tmoh43hbp71" path="res://other_assets/UI/item_none.png" id="1_33jdp"]
 
 [node name="item_slot" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 4
+offset_right = 32.0
+offset_bottom = 32.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1.44392e-07, 0.482616, 0.482616, 1)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+texture = ExtResource("1_33jdp")

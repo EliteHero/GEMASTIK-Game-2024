@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://moddixrxiwr5"]
+
+[ext_resource type="Script" path="res://world/main_1.gd" id="1_f7w7a"]
+[ext_resource type="PackedScene" uid="uid://brhndhmohet6j" path="res://world/capsule_room.tscn" id="1_qxmpi"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_2ax3d"]
+[ext_resource type="PackedScene" uid="uid://cqaakjqh6l34w" path="res://world/interactable_nova.tscn" id="3_a3wjh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufxso"]
+radius = 186.968
+
+[node name="main1" type="Node2D" groups=["Main1"]]
+script = ExtResource("1_f7w7a")
+
+[node name="capsule_room" parent="." instance=ExtResource("1_qxmpi")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_2ax3d")]
+position = Vector2(194, 162)
+
+[node name="interactable_nova" parent="." instance=ExtResource("3_a3wjh")]
+position = Vector2(465, 384)
+
+[node name="boundary" type="Area2D" parent="."]
+position = Vector2(22, 1237)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
+shape = SubResource("CircleShape2D_ufxso")
+
+[connection signal="body_entered" from="boundary" to="." method="_on_boundary_body_entered"]

@@ -20,6 +20,7 @@ offset_left = -275.0
 offset_top = -31.0
 offset_right = 339.0
 offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3k012")
 theme_override_font_sizes/font_size = 30
@@ -38,11 +39,14 @@ debug_color = Color(0.609252, 0, 0.188171, 0.203922)
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_4uo55")]
 position = Vector2(-95, -31)
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(88.5, 34.5)
 shape = SubResource("RectangleShape2D_ude5v")
 debug_color = Color(1, 1, 1, 0.42)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvehtvvfxkftk"]
+
+[ext_resource type="Texture2D" uid="uid://bjrhj4kowypen" path="res://effect_areas/bullet_impact.png" id="1_dxq0c"]
+[ext_resource type="Script" path="res://effect_areas/bullet_impact.gd" id="1_j2g30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkiqy"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i73k"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1y5w"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjg1t"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vts1j"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kds2"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2skuq"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kovvf"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6hl1"]
+atlas = ExtResource("1_dxq0c")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4f4ga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkiqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i73k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1y5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjg1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vts1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kds2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2skuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kovvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6hl1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="bullet_impact" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_j2g30")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4f4ga")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
