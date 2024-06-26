@@ -2,9 +2,11 @@ extends Area2D
 
 @onready var animation = $AnimationPlayer
 var travelledDistance = 0
-const SPEED = 1500
-const ULTRA_SPEED = 5000
+var player_pos
+const SPEED = 500
+const ULTRA_SPEED = 1000
 const RANGE = 1700
+const MIN_DISTANCE_TO_PLAYER = 50
 
 enum {
 	attack_enemy,
@@ -15,7 +17,6 @@ var state = attack_enemy
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation.play("shot")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,7 +43,7 @@ func attack_enemy_state(delta):
 		queue_free()
 		
 func attack_player_state(delta):
-	var player_pos = GlobalEventListener.get_player_position()
+	player_pos = GlobalEventListener.get_player_position()
 	
 	var direction = (player_pos - position).normalized()
 	rotation = direction.angle()

@@ -1,9 +1,10 @@
 extends Node2D
 
 func all_objects_interacted():
-	TransitionBlack.transition()
-	await TransitionBlack.on_transition_finished
-	print("All objects interacted!")
+	get_tree().change_scene_to_file("res://cutscenes/cutscene_9.tscn")
+
+func _ready():
+	GlobalMusic.play_exploration()
 
 func _on_boundary_body_entered(body):
 	if body.name == "amara_overworld":

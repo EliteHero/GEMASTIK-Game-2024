@@ -130,12 +130,10 @@ transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition
 radius = 4.8
 
 [node name="Nova" type="CharacterBody2D" groups=["Nova"]]
-scale = Vector2(5, 5)
 script = ExtResource("1_gx50s")
 
 [node name="Shadow" type="Sprite2D" parent="." groups=["Nova"]]
 position = Vector2(0, 15.6)
-scale = Vector2(1, 1)
 texture = ExtResource("2_6qj6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -18,8 +18,8 @@ func _on_hurtbox_area_entered(area):
 
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
-	status = true
-	GlobalEventListener.time_panel_interacted()
 	TransitionBlack.transition()
 	await TransitionBlack.on_transition_finished
 	get_tree().call_group("player_overworld", "is_talking_false")
+	status = true
+	GlobalEventListener.time_panel_interacted()

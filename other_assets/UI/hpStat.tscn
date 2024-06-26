@@ -15,16 +15,17 @@ script = ExtResource("1_wn0dl")
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -294.0
-offset_top = 83.0
-offset_bottom = 133.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 19.0
+grow_horizontal = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-scale = Vector2(5, 5)
+[node name="hp_sprite" type="Sprite2D" parent="Panel"]
+scale = Vector2(2, 2)
 texture = ExtResource("2_g478x")
 centered = false
+offset = Vector2(0, 10)
 vframes = 9

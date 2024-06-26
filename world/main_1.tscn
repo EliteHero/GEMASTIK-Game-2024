@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqaakjqh6l34w" path="res://world/interactable_nova.tscn" id="3_a3wjh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufxso"]
-radius = 186.968
+radius = 73.0274
 
 [node name="main1" type="Node2D" groups=["Main1"]]
 script = ExtResource("1_f7w7a")
@@ -14,13 +14,13 @@ script = ExtResource("1_f7w7a")
 [node name="capsule_room" parent="." instance=ExtResource("1_qxmpi")]
 
 [node name="amara_overworld" parent="." instance=ExtResource("2_2ax3d")]
-position = Vector2(194, 162)
+position = Vector2(30, 51)
 
 [node name="interactable_nova" parent="." instance=ExtResource("3_a3wjh")]
-position = Vector2(465, 384)
+position = Vector2(119, 99)
 
 [node name="boundary" type="Area2D" parent="."]
-position = Vector2(22, 1237)
+position = Vector2(1, 319)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
 shape = SubResource("CircleShape2D_ufxso")

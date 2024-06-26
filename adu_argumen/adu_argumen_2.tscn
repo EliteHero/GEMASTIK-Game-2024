@@ -1,0 +1,171 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdv3vehgnvqtq"]
+
+[ext_resource type="PackedScene" uid="uid://chptx7380md2v" path="res://world/brain_arena.tscn" id="1_h3w78"]
+[ext_resource type="PackedScene" uid="uid://cnlqgfwc345k1" path="res://characters/amara_arena.tscn" id="2_884t5"]
+[ext_resource type="PackedScene" uid="uid://64v55b68xe0t" path="res://other_assets/UI/inventory_ui.tscn" id="3_culpe"]
+
+[sub_resource type="GDScript" id="GDScript_82pva"]
+script/source = "extends Node2D
+
+signal player_attack_signal(weapon_data)
+
+var arguments = [
+	{\"label\" : \"Waktu kematiannya adalah 14.05\", \"immune\" : true, \"weakness\": \"none\", \"color\" : Color.YELLOW},
+	{\"label\" : \"Sedangkan, sekarang adalah 14.15\", \"immune\" : true, \"weakness\": \"none\", \"color\" : Color.WHITE},
+	{\"label\" : \"Artinya, kamu bangun 10 menit yang lalu\", \"immune\" : false, \"weakness\": \"Panel Waktu\", \"color\" : Color.YELLOW},
+	{\"label\" : \"Dan menyetrumnya dengan kabel dari kapsulmu\", \"immune\" : true, \"weakness\": \"none\", \"color\" : Color.WHITE},
+	{\"label\" : \"Ingat, hanya kamu yang terbangun untuk saat ini\", \"immune\" : true, \"weakness\": \"none\", \"color\" : Color.WHITE},
+	{\"label\" : \"empty\", \"immune\" : true, \"weakness\": \"none\", \"color\" : Color.WHITE}
+]
+
+var items = [
+	{\"name\" : \"Panel Waktu\", \"sprite\" : preload(\"res://other_assets/UI/Items_sprite/panel_waktu.png\")},
+	{\"name\" : \"Robot Rusak\", \"sprite\" : preload(\"res://other_assets/UI/Items_sprite/broken_robot.png\")},
+	{\"name\" : \"Data Jumlah Manusia\", \"sprite\" : preload(\"res://other_assets/UI/Items_sprite/data_jumlah.png\")}
+]
+
+@onready var inventory = $CanvasLayer/inventory_ui
+@onready var item_slot = inventory.send_children()
+@onready var player = $amara_arena
+@onready var scroll_cooldown_timer = $scroll_cooldown_timer
+var picked_color = Color.WHITE
+var normal_color = Color.html(\"#007B7B\")
+var current_item = 1
+var current_weapon 
+var switch_item: bool
+var can_scroll = true
+
+const SCROLL_COOLDOWN = 0.2
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	GlobalMusic.play_battle()
+	GlobalEventListener.after_battle_scene = \"res://cutscenes/cutscene_12.tscn\"
+	GlobalEventListener.last_battle_scene = \"res://adu_argumen/adu_argumen_2.tscn\"
+	new_argument(arguments)
+	switch_item = true
+	
+	var n = 1
+	for item in items:
+		var texture_rect = item_slot[n]
+		var texture = item[\"sprite\"]
+		texture_rect.texture = texture
+		n += 2
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	match current_item:
+		1:
+			inventory.change_text(items[0][\"name\"])
+			item_slot[1].modulate = picked_color
+			item_slot[5].modulate = normal_color
+			item_slot[3].modulate = normal_color
+			current_weapon = items[0][\"name\"]
+		2:
+			inventory.change_text(items[1][\"name\"])
+			item_slot[3].modulate = picked_color
+			item_slot[1].modulate = normal_color
+			item_slot[5].modulate = normal_color
+			current_weapon = items[1][\"name\"]
+		3:
+			inventory.change_text(items[2][\"name\"])
+			item_slot[5].modulate = picked_color
+			item_slot[1].modulate = normal_color
+			item_slot[3].modulate = normal_color
+			current_weapon = items[2][\"name\"]
+	
+	if Input.is_action_just_pressed(\"nextItem\") and switch_item == true:
+		next_item()
+	elif Input.is_action_just_pressed(\"prev_item\") and switch_item == true:
+		prev_item()
+
+func new_argument(arguments):
+	for argument in arguments:
+		if argument[\"label\"] == \"empty\":
+			TransitionBlack.transition()
+			await TransitionBlack.on_transition_finished
+			get_tree().change_scene_to_file(\"res://adu_argumen/adu_argumen_2_rest.tscn\")
+			return
+		var enemy = preload(\"res://characters/enemy.tscn\")
+		var text = enemy.instantiate()
+		var textSpawn = $MobPath/MobSpawn
+		textSpawn.progress_ratio = randf()
+		text.position = textSpawn.position
+		
+		add_child(text)
+		text.get_node(\"Label\").text = argument[\"label\"]
+		text.get_node(\"Label\").add_theme_color_override(\"font_color\", argument[\"color\"])
+		text.immune = argument[\"immune\"]
+		text.weakness = argument[\"weakness\"]
+		await text.text_die
+
+func _input(event):
+	if switch_item == true:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and can_scroll:
+				next_item()
+				can_scroll = false
+				scroll_cooldown_timer.start(SCROLL_COOLDOWN)
+			elif event.button_index == MOUSE_BUTTON_WHEEL_UP and can_scroll:
+				prev_item()
+				can_scroll = false
+				scroll_cooldown_timer.start(SCROLL_COOLDOWN)
+		if event is InputEventKey and event.pressed:
+			match event.keycode:
+				KEY_1:
+					current_item = 1
+				KEY_2:
+					current_item = 2
+				KEY_3:
+					current_item = 3
+
+func next_item():
+	if current_item == 3:
+		current_item = 1
+	else:
+		current_item += 1
+
+func prev_item():
+	if current_item == 1:
+		current_item = 3
+	else:
+		current_item -= 1
+
+func set_switch_item(state):
+	switch_item = state
+
+func player_attack():
+	player_attack_signal.emit(current_weapon)
+
+
+func _on_scroll_cooldown_timer_timeout():
+	can_scroll = true
+"
+
+[sub_resource type="Curve2D" id="Curve2D_ly83c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1965, -1445, 0, 0, 0, 0, 1769, -1489, 0, 0, 0, 0, 1801, 1235, 0, 0, 0, 0, -1965, 1222, 0, 0, 0, 0, -1965, -1445)
+}
+point_count = 5
+
+[node name="adu_argumen2" type="Node2D" groups=["AduArgumen"]]
+script = SubResource("GDScript_82pva")
+
+[node name="BrainArena" parent="." instance=ExtResource("1_h3w78")]
+
+[node name="amara_arena" parent="." instance=ExtResource("2_884t5")]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ly83c")
+
+[node name="MobSpawn" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-1965, -1445)
+rotation = -0.0117831
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_ui" parent="CanvasLayer" instance=ExtResource("3_culpe")]
+
+[node name="scroll_cooldown_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="scroll_cooldown_timer" to="." method="_on_scroll_cooldown_timer_timeout"]

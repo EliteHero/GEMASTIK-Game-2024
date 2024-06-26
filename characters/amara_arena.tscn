@@ -444,7 +444,6 @@ radius = 4.6
 height = 27.2
 
 [node name="amara_arena" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(5, 5)
 collision_layer = 2
 script = ExtResource("1_noyjy")
 
@@ -476,9 +475,6 @@ parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(-0.00160003, 0.0119047)
 parameters/Run/blend_position = Vector2(0, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("4_3nt7l")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.45342e-14, 11)
 rotation = 1.5708
@@ -499,6 +495,12 @@ debug_color = Color(1, 1, 1, 0.42)
 [node name="iframe_timer" type="Timer" parent="."]
 
 [node name="BulletPivot" type="Marker2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("4_3nt7l")
 
 [connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_area_entered"]
 [connection signal="timeout" from="iframe_timer" to="." method="_on_iframe_timer_timeout"]

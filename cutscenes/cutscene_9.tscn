@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://vij6mccnjqnn"]
+
+[ext_resource type="PackedScene" uid="uid://brhndhmohet6j" path="res://world/capsule_room.tscn" id="1_kukx7"]
+[ext_resource type="Script" path="res://cutscenes/cutscene_9.gd" id="1_yeyio"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_kraoc"]
+[ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_lpjng"]
+
+[node name="cutscene9" type="Node2D"]
+script = ExtResource("1_yeyio")
+
+[node name="capsule_room" parent="." instance=ExtResource("1_kukx7")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_kraoc")]
+position = Vector2(87, 100)
+
+[node name="Nova" parent="." instance=ExtResource("3_lpjng")]
+position = Vector2(117, 99)

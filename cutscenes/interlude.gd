@@ -15,4 +15,5 @@ func _on_area_2d_body_entered(body):
 	get_tree().call_group("player_overworld", "cutscene_move", "DOWN")
 	get_tree().call_group("player_overworld", "change_state", "CUTSCENE")
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	GlobalMusic.stop_exploration()
 	Dialogic.start("interlude")

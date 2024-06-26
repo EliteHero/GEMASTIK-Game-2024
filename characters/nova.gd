@@ -1,11 +1,17 @@
 extends CharacterBody2D
 
+enum {
+	MOVE,
+	IDLE
+}
+
 # Speed of the NPC
-var speed = 200
+var speed = 100
 # Timer to control the duration of movement
 var move_timer: Timer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+var state = MOVE
 
 func _ready():
 	animationTree.active = true
@@ -15,7 +21,7 @@ func _ready():
 	add_child(move_timer)
 
 func _process(delta):
-	if velocity != Vector2.ZERO:
+	if state == MOVE and velocity != Vector2.ZERO:
 		move_and_slide()
 	
 	animationTree.set("parameters/Move/blend_position", velocity)
@@ -50,4 +56,10 @@ func _on_move_timer_timeout():
 	velocity = Vector2.ZERO  # Stop movement
 
 func look_down():
+	state = IDLE
 	velocity = Vector2(0, 1)
+
+func look_left():
+	velocity = Vector2(-1, 0)
+	await get_tree().create_timer(0.0001).timeout
+	velocity = Vector2.ZERO

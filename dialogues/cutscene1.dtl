@@ -3,6 +3,7 @@ unknown (mood2): Sebuah kampus yang berusaha mendidik jiwa-jiwa muda agar bisa m
 unknown (mood2): Membuat dunia agar menjadi lebih baik
 unknown (mood2): Membangun infrastuktur dan sekaligus berusaha menyelamatkan lingkungan hidup
 unknown (mood2): Sayangnya...
+[signal arg="stop music"]
 unknown (mood1): [color=red]...semua itu sia-sia[/color]
 [wait time="1.0"]
 [end_timeline]

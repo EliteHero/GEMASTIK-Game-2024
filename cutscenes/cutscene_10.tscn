@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7yncmk1pcwqm"]
+
+[ext_resource type="PackedScene" uid="uid://brhndhmohet6j" path="res://world/capsule_room.tscn" id="1_bbquj"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_bgc4f"]
+[ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_nw5uw"]
+
+[sub_resource type="GDScript" id="GDScript_ufwyu"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	GlobalMusic.play_exploration()
+	get_tree().call_group(\"player_overworld\", \"change_state\", \"CUTSCENE\")
+	change_player_anim(\"RIGHT\")
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.start(\"cutscene10\")
+
+func change_player_anim(state):
+	match state:
+		\"RIGHT\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"RIGHT\")
+		\"LEFT\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"LEFT\")
+		\"UP\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"UP\")
+		\"DOWN\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"DOWN\")
+
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().change_scene_to_file(\"res://cutscenes/cutscene_11.tscn\")
+"
+
+[node name="cutscene_10" type="Node2D"]
+script = SubResource("GDScript_ufwyu")
+
+[node name="capsule_room" parent="." instance=ExtResource("1_bbquj")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_bgc4f")]
+position = Vector2(94, 102)
+
+[node name="Nova" parent="." instance=ExtResource("3_nw5uw")]
+position = Vector2(120, 100)

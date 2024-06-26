@@ -18,11 +18,11 @@ func _on_hurtbox_area_entered(area):
 
 func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
-	has_interacted = true
-	GlobalEventListener.corpse_interacted()
 	TransitionBlack.transition()
 	await TransitionBlack.on_transition_finished
 	get_tree().call_group("player_overworld", "is_talking_false")
+	has_interacted = true
+	GlobalEventListener.corpse_interacted()
 
 func set_censor(censor):
 	if censor == true:

@@ -1,17 +1,20 @@
 extends Control
 
-@onready var hpSprite = $Panel/Sprite2D
-
-var maxHp = 8
+@onready var hpSprite = $Panel/hp_sprite
 var hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	hp = GlobalEventListener.current_hp
+	update_hp_sprite()
 
+func _process(delta):
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func update_hp_sprite():
+	if hpSprite == null:
+		return
 	match hp:
 		8:
 			hpSprite.frame = 0
@@ -34,6 +37,17 @@ func _process(delta):
 
 func set_hp(setHp: int):
 	hp = setHp
+	update_hp_sprite()
 	
 func take_damage():
 	hp -= 1
+	GlobalEventListener.current_hp = hp
+	update_hp_sprite()
+	if hp == 0:
+		game_over()
+
+func game_over():
+	GlobalEventListener.current_hp = 8
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().change_scene_to_file("res://cutscenes/game_over_screen.tscn")

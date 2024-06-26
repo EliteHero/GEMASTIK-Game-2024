@@ -4,6 +4,8 @@ signal on_transition_finished
 
 @onready var pause_sprite = $pause_sprites
 @onready var animation_player = $AnimationPlayer
+@onready var turn_on = $Turn_on
+@onready var turn_off = $Turn_off
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +20,9 @@ func _on_animation_finished(anim_name):
 func transition():
 	animation_player.play("transition")
 	pause_sprite.visible = true
+	turn_on.play()
 
 func transition_back():
 	animation_player.play("transition_back")
 	pause_sprite.visible = true
+	turn_off.play()

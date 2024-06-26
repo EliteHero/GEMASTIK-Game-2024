@@ -8,6 +8,7 @@ func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_text_signal)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.start("cutscene6")
+	GlobalMusic.play_exploration()
 
 func _on_dialogic_text_signal(argument: String):
 	if argument == "turn_left_right":

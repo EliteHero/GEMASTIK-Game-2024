@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn71yi7mhjsws"]
+
+[ext_resource type="Script" path="res://other_assets/transition_interupsi.gd" id="1_oj5lt"]
+[ext_resource type="Texture2D" uid="uid://cp0jwt40ykws7" path="res://other_assets/transition_interupsi_sprite.png" id="2_sl2dr"]
+[ext_resource type="Script" path="res://other_assets/transition_interupsi_sprite.gd" id="3_d0jym"]
+[ext_resource type="AudioStream" uid="uid://dq4cbk7un5o8c" path="res://other_assets/sfx/interupsi_fix.wav" id="4_ol4ju"]
+
+[sub_resource type="Animation" id="Animation_5w15y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition_interupsi_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f2rnx"]
+resource_name = "transition"
+length = 0.70001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition_interupsi_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hrrt"]
+_data = {
+"RESET": SubResource("Animation_5w15y"),
+"transition": SubResource("Animation_f2rnx")
+}
+
+[node name="transition_interupsi" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_oj5lt")
+
+[node name="transition_interupsi_sprite" type="Sprite2D" parent="."]
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("2_sl2dr")
+hframes = 7
+script = ExtResource("3_d0jym")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8hrrt")
+}
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ol4ju")
+volume_db = 10.0

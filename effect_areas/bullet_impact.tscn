@@ -75,7 +75,7 @@ animations = [{
 }]
 
 [node name="bullet_impact" type="Node2D"]
-scale = Vector2(5, 5)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_j2g30")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

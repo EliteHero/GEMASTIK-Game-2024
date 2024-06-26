@@ -8,6 +8,7 @@ Amara (mood1): [color=drak_slate_gray](Sebuah robot?)[/color]
 [signal arg="amara_move"]
 Amara (mood1): H-hey tunggu! Aku butuh bantuanmu-
 Robot (mood1): ...
+[signal arg="play music"]
 Robot (mood1): AHHHHHHHHHHHHHHHHHHHHHHHHH
 [signal arg="nova_move_down"]
 Amara (mood1): A-apa?
@@ -27,3 +28,4 @@ Robot (mood1): Baiklah, tetapi ingat. Aku telah melaporkan dirimu dan robot-robo
 Robot (mood1): Kamu hanya aku perbolehkan untuk menginvestigasi ruangan ini saja. Jika kamu berusaha untuk keluar atau kabur, maka aku sendiri yang akan memberhentikanmu!
 Amara (mood1): T-terima kasih!
 Tekan E atau LMB untuk berinteraksi dengan beberapa objek
+Robot (mood1): Oh ya, aku juga bisa mencatat apa saja yang telah kamu temukan! Tekan ESC untuk melihat catatanmu!

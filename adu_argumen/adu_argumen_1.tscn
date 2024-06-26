@@ -28,3 +28,7 @@ rotation = -0.0117831
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory_ui" parent="CanvasLayer" instance=ExtResource("4_g0uys")]
+
+[node name="scroll_cooldown_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="scroll_cooldown_timer" to="." method="_on_scroll_cooldown_timer_timeout"]

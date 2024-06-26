@@ -1,29 +1,37 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwy7qswwl02yt"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_erkyl"]
+[ext_resource type="Script" path="res://characters/enemy.gd" id="1_erkyl"]
 [ext_resource type="FontFile" uid="uid://cuck8i8knhtlt" path="res://other_assets/fonts/VCRosdNEUE.ttf" id="2_3k012"]
 [ext_resource type="PackedScene" uid="uid://byaf6ofgf8m1f" path="res://effect_areas/hitbox.tscn" id="3_o6y2d"]
 [ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="4_4uo55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx7y5"]
-size = Vector2(388, 56)
+size = Vector2(211, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ude5v"]
-size = Vector2(383, 53)
+size = Vector2(215, 53)
 
 [node name="enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(-1, 0)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_erkyl")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -275.0
-offset_top = -31.0
-offset_right = 339.0
-offset_bottom = 34.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -32.5
+offset_right = 201.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3k012")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Aku datang ke sini sekitar 3 menit yang lalu"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -33,7 +41,7 @@ position = Vector2(-95, -31)
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(90, 34)
+position = Vector2(79.5, 34)
 shape = SubResource("RectangleShape2D_lx7y5")
 debug_color = Color(0.609252, 0, 0.188171, 0.203922)
 
@@ -42,7 +50,7 @@ position = Vector2(-95, -31)
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(88.5, 34.5)
+position = Vector2(81.5, 34.5)
 shape = SubResource("RectangleShape2D_ude5v")
 debug_color = Color(1, 1, 1, 0.42)
 

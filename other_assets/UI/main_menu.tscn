@@ -1,0 +1,115 @@
+[gd_scene load_steps=21 format=3 uid="uid://burvd7jkv0niu"]
+
+[ext_resource type="Script" path="res://other_assets/UI/main_menu.gd" id="1_2vgoh"]
+[ext_resource type="Texture2D" uid="uid://bsem64bx1hssf" path="res://other_assets/UI/main_menu.png" id="1_k6myl"]
+[ext_resource type="Texture2D" uid="uid://bsh2ixeprhxhe" path="res://cutscenes/cutscene_assets/Bhaskara EcoNihilist.png" id="2_pk0dm"]
+[ext_resource type="Texture2D" uid="uid://dwim7ev8opmwc" path="res://other_assets/UI/button_sprites/start_btn.png" id="3_mxjua"]
+[ext_resource type="Texture2D" uid="uid://bwtjv7atakln1" path="res://other_assets/UI/button_sprites/credit_btn.png" id="4_rjy6g"]
+[ext_resource type="Texture2D" uid="uid://fedidqd2p4qe" path="res://other_assets/UI/button_sprites/quit_btn.png" id="5_c4jfj"]
+[ext_resource type="AudioStream" uid="uid://c8i2bphiosnri" path="res://other_assets/musics/menu.wav" id="7_r6r66"]
+[ext_resource type="AudioStream" uid="uid://c1jyfhpp3e5xs" path="res://other_assets/sfx/btn_sfx1.ogg" id="8_y7kti"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywecm"]
+texture = ExtResource("3_mxjua")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hy5eh"]
+texture = ExtResource("3_mxjua")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phsvn"]
+texture = ExtResource("3_mxjua")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm6rp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pk1o4"]
+texture = ExtResource("4_rjy6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvlm3"]
+texture = ExtResource("4_rjy6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fmbk"]
+texture = ExtResource("4_rjy6g")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnlec"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpcpj"]
+texture = ExtResource("5_c4jfj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x78e"]
+texture = ExtResource("5_c4jfj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hugg0"]
+texture = ExtResource("5_c4jfj")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h53ve"]
+
+[node name="Main menu" type="CanvasLayer"]
+script = ExtResource("1_2vgoh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_k6myl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -265.0
+offset_right = 552.0
+offset_bottom = 265.0
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_pk0dm")
+expand_mode = 2
+
+[node name="start_btn" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ywecm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hy5eh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_phsvn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mm6rp")
+
+[node name="credit_btn" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_pk1o4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vvlm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0fmbk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xnlec")
+
+[node name="keluar_btn" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_dpcpj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7x78e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hugg0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h53ve")
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_r6r66")
+autoplay = true
+
+[node name="btn_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y7kti")
+volume_db = 10.0
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/credit_btn" to="." method="_on_credit_btn_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/keluar_btn" to="." method="_on_keluar_btn_pressed"]

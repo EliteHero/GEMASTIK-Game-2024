@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://c40iw0eqnad4w"]
+[gd_scene load_steps=32 format=3 uid="uid://c40iw0eqnad4w"]
 
 [ext_resource type="Script" path="res://characters/amara_overworld.gd" id="1_pfdng"]
 [ext_resource type="Texture2D" uid="uid://dmt1px22afbdb" path="res://characters/chara_sprites/Amara Idle & Walk - ok-Sheet-export.png" id="1_ttxli"]
 [ext_resource type="Texture2D" uid="uid://8h00sat6g0ln" path="res://Shadows/SmallShadow.png" id="3_2u681"]
 [ext_resource type="PackedScene" uid="uid://byaf6ofgf8m1f" path="res://effect_areas/hitbox.tscn" id="3_dwqav"]
+[ext_resource type="Script" path="res://characters/Camera2D.gd" id="4_h1jan"]
 
 [sub_resource type="Animation" id="Animation_hi0ee"]
 resource_name = "IdleDown"
@@ -339,8 +340,8 @@ states/Walk/position = Vector2(491, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qff6b"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_mg5dp"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7eovw")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jxoe"]
-radius = 15.0
-height = 46.0
+radius = 3.0
+height = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmm12"]
 
@@ -349,12 +350,10 @@ collision_layer = 3
 script = ExtResource("1_pfdng")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, 70)
-scale = Vector2(6, 6)
+position = Vector2(0, 14)
 texture = ExtResource("3_2u681")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
 texture = ExtResource("1_ttxli")
 hframes = 4
 vframes = 8
@@ -372,20 +371,23 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 60)
+position = Vector2(0, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4jxoe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.7, 1.7)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("4_h1jan")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="Hitbox" parent="Marker2D" instance=ExtResource("3_dwqav")]
-position = Vector2(0, 50)
+position = Vector2(0, 14)
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Marker2D/Hitbox" index="0"]
-scale = Vector2(3.5, 3.5)
 shape = SubResource("RectangleShape2D_fmm12")
 disabled = true
 

@@ -1,9 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dte6lpkjokorq"]
+[gd_scene load_steps=9 format=3 uid="uid://dte6lpkjokorq"]
 
 [ext_resource type="PackedScene" uid="uid://brhndhmohet6j" path="res://world/capsule_room.tscn" id="1_j4i1h"]
 [ext_resource type="Script" path="res://cutscenes/cutscene_8.gd" id="1_vnhwn"]
 [ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_iwxc0"]
 [ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_gmmbm"]
+[ext_resource type="AudioStream" uid="uid://u0qon8i58j2l" path="res://other_assets/musics/glitch.ogg" id="5_m71sq"]
+
+[sub_resource type="Animation" id="Animation_km4ma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bo5qp"]
+resource_name = "music_stop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3gh0"]
+_data = {
+"RESET": SubResource("Animation_km4ma"),
+"music_stop": SubResource("Animation_bo5qp")
+}
 
 [node name="cutscene_8" type="Node2D"]
 script = ExtResource("1_vnhwn")
@@ -11,10 +48,10 @@ script = ExtResource("1_vnhwn")
 [node name="capsule_room" parent="." instance=ExtResource("1_j4i1h")]
 
 [node name="amara_overworld" parent="." instance=ExtResource("2_iwxc0")]
-position = Vector2(-25, 930)
+position = Vector2(-6, 217)
 
 [node name="Nova" parent="." instance=ExtResource("3_gmmbm")]
-position = Vector2(82, 939)
+position = Vector2(20, 220)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -25,3 +62,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_m71sq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w3gh0")
+}

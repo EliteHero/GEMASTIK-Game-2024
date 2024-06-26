@@ -1,6 +1,12 @@
 extends Node
 
+var is_transitioning: bool
 var pause_menu
+
+#battle variables
+var last_battle_scene
+var after_battle_scene
+var current_hp
 
 var has_interacted_time_panel: bool = false
 var has_interacted_corpse: bool = false
@@ -17,26 +23,34 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		if get_tree().paused:
-			unpause_game()
-		else: 
-			pause_game()
+		if not is_transitioning:
+			if get_tree().paused:
+				unpause_game()
+			else: 
+				pause_game()
 
 func pause_game():
+	is_transitioning = true
 	get_tree().paused = true
 	TransitionPause.transition()
 	await TransitionPause.on_transition_finished
 	
-	var pause_menu_scene = preload("res://other_assets/UI/pause_screen.tscn")
-	pause_menu = pause_menu_scene.instantiate()
-	get_tree().root.add_child(pause_menu)
+	if pause_menu == null:
+		var pause_menu_scene = preload("res://other_assets/UI/pause_screen.tscn")
+		pause_menu = pause_menu_scene.instantiate()
+		get_tree().root.add_child(pause_menu)
+	is_transitioning = false
 
 func unpause_game():
-	pause_menu.queue_free()
-	pause_menu = null
+	is_transitioning = true
+	if pause_menu:
+		pause_menu.queue_free()
+		pause_menu = null
+	
 	TransitionPause.transition_back()
 	await TransitionPause.on_transition_finished
 	get_tree().paused = false
+	is_transitioning = false
 
 func set_player_instance(player):
 	player_instance = player
@@ -48,6 +62,7 @@ func get_player_position():
 
 func time_panel_interacted():
 	has_interacted_time_panel = true
+	btn_time_panel_disabled = false
 	check_interaction_status()
 
 func get_time_panel_has_interacted():
@@ -55,6 +70,8 @@ func get_time_panel_has_interacted():
 
 func corpse_interacted():
 	has_interacted_corpse = true
+	btn_robot_rusak_disabled = false
+	btn_data_jumlah_disabled = false
 	check_interaction_status()
 	
 func get_corpse_has_interacted():
@@ -80,3 +97,11 @@ func get_btn_robot_rusak():
 	
 func get_btn_data_jumlah():
 	return btn_data_jumlah_disabled
+
+func debat_win():
+	TransitionInterupsi.transition()
+	await TransitionInterupsi.on_transition_finished
+	GlobalMusic.stop_battle()
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().change_scene_to_file(after_battle_scene)

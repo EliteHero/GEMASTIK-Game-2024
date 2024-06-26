@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crorlt0bjpugl"]
+[gd_scene load_steps=33 format=3 uid="uid://crorlt0bjpugl"]
 
 [ext_resource type="Texture2D" uid="uid://cdysdx00j67l6" path="res://other_assets/UI/pause_screen.png" id="1_hwc3n"]
 [ext_resource type="Script" path="res://other_assets/UI/pause_screen.gd" id="1_tllp7"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://boh1kkol0brlx" path="res://other_assets/UI/Items_sprite/data_jumlah.png" id="6_llanl"]
 [ext_resource type="Texture2D" uid="uid://cisjg88o1b4e4" path="res://other_assets/UI/Items_sprite/broken_robot.png" id="7_6mhi7"]
 [ext_resource type="FontFile" uid="uid://cuck8i8knhtlt" path="res://other_assets/fonts/VCRosdNEUE.ttf" id="7_a4hq1"]
-[ext_resource type="FontFile" uid="uid://b5bdjkqhlu1oi" path="res://other_assets/fonts/VCR_OSD_MONO_1.001.ttf" id="8_efwip"]
+[ext_resource type="FontFile" uid="uid://beag7b70mq6m1" path="res://other_assets/fonts/monogram.ttf" id="11_pus6m"]
+[ext_resource type="AudioStream" uid="uid://bw0i70dablwef" path="res://other_assets/sfx/btn_sfx2.ogg" id="12_raipv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufwkh"]
 texture = ExtResource("2_g25nj")
@@ -85,32 +86,34 @@ grow_vertical = 2
 texture = ExtResource("1_hwc3n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = 150.0
-offset_right = -160.0
+offset_left = -105.0
+offset_top = 41.0
+offset_right = 105.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 550
+theme_override_constants/separation = 120
 
 [node name="resume_btn" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(156, 58)
+custom_minimum_size = Vector2(78, 29)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_ufwkh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_duie8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3luho")
 
 [node name="quit_btn" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(156, 58)
+custom_minimum_size = Vector2(78, 29)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_7ss4b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xjcse")
@@ -121,36 +124,44 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 25
-theme_override_constants/v_separation = 25
+theme_override_constants/v_separation = 9
 columns = 5
 
 [node name="time_panel_btn" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 
 [node name="robot_rusak_btn" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_kp2oh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_636fj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w1ukm")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_m5ylu")
 
 [node name="data_jumlah_btn" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_ifowl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_b80ey")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_77y7f")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_dtjux")
 
 [node name="time_panel_btn4" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -158,8 +169,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn5" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -167,8 +180,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn6" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -176,8 +191,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn7" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -185,8 +202,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn8" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -194,8 +213,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn9" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -203,8 +224,10 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="time_panel_btn10" type="Button" parent="VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
@@ -212,7 +235,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 disabled = true
 
 [node name="Panel_name" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(850, 60)
+custom_minimum_size = Vector2(260, 25)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxkph")
@@ -225,29 +248,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_a4hq1")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 14
 text = "Tidak ada bukti yang dipilih"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel_description" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(850, 200)
+custom_minimum_size = Vector2(260, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_45u2n")
 
 [node name="item_desc" type="Label" parent="VBoxContainer/Panel_description"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.02
-anchor_top = 0.1
-anchor_right = 0.98
-anchor_bottom = 0.9
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -43.0
+offset_right = 123.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("8_efwip")
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("11_pus6m")
+theme_override_font_sizes/font_size = 15
 horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="btn_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_raipv")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/time_panel_btn" to="." method="_on_time_panel_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/robot_rusak_btn" to="." method="_on_robot_rusak_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/data_jumlah_btn" to="." method="_on_data_jumlah_btn_pressed"]

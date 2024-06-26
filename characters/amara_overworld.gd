@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const ACCELERATION = 1000
-const MAX_SPEED = 400
-const FRICTION = 3000
+const ACCELERATION = 600
+const MAX_SPEED = 100
+const FRICTION = 1000
 
 enum {
 	MOVE,
@@ -95,3 +95,6 @@ func eternal_hitbox_disabled(status):
 
 func set_player_position(x,y):
 	global_position = Vector2(x,y)
+
+func shake_camera():
+	$Camera2D.shake_camera()

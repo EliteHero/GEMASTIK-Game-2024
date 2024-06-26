@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Eco-Nihilist"
+run/main_scene="res://other_assets/UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,10 @@ TransitionWhite="*res://other_assets/transition_white.tscn"
 TransitionBlack="*res://other_assets/transition_black.tscn"
 GlobalEventListener="*res://GlobalEventListener.gd"
 TransitionPause="*res://other_assets/transition_pause.tscn"
+TransitionDebat="*res://other_assets/transition_debat.tscn"
+TransitionInterupsi="*res://other_assets/transition_interupsi.tscn"
+HpStat="*res://other_assets/UI/hpStat.gd"
+GlobalMusic="*res://other_assets/musics/exploration_music.tscn"
 
 [dialogic]
 
@@ -31,15 +36,21 @@ directories/dch_directory={
 "unknown": "res://dialogues/dl_characters/unknown.dch"
 }
 directories/dtl_directory={
+"adu_argumen_1_rest": "res://dialogues/adu_argumen_1_rest.dtl",
+"adu_argumen_2_rest": "res://dialogues/adu_argumen_2_rest.dtl",
 "boundary1": "res://dialogues/boundary1.dtl",
 "corpse": "res://dialogues/corpse.dtl",
 "cutscene1": "res://dialogues/cutscene1.dtl",
+"cutscene10": "res://dialogues/cutscene10.dtl",
+"cutscene11": "res://dialogues/cutscene11.dtl",
+"cutscene12": "res://dialogues/cutscene12.dtl",
 "cutscene2": "res://dialogues/cutscene2.dtl",
 "cutscene4": "res://dialogues/cutscene4.dtl",
 "cutscene5": "res://dialogues/cutscene5.dtl",
 "cutscene6": "res://dialogues/cutscene6.dtl",
 "cutscene7": "res://dialogues/cutscene7.dtl",
 "cutscene8": "res://dialogues/cutscene8.dtl",
+"cutscene9": "res://dialogues/cutscene9.dtl",
 "has_interacted": "res://dialogues/has_interacted.dtl",
 "interactable_nova1": "res://dialogues/interactable_nova1.dtl",
 "interactable_nova2": "res://dialogues/interactable_nova2.dtl",
@@ -75,6 +86,8 @@ text/autopauses={}
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

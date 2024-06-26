@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const ACCELERATION = 2000
-const MAX_SPEED = 500
-const FRICTION = 2000
+const ACCELERATION = 1000
+const MAX_SPEED = 150
+const FRICTION = 1000
 
 enum {
 	MOVE,
