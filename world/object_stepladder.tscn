@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://oypvrld8t1r0"]
+
+[ext_resource type="Texture2D" uid="uid://cqlxfc1605jil" path="res://Shadows/MediumShadow.png" id="1_4aydn"]
+[ext_resource type="Texture2D" uid="uid://cd3lclbdmq5fe" path="res://world/object_assets/stepladder.png" id="2_mfhuj"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="3_yt40q"]
+
+[sub_resource type="GDScript" id="GDScript_pyni6"]
+script/source = "extends StaticBody2D
+
+var status: bool
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	status = GlobalEventListener.has_interacted_stepladder
+
+	
+func _on_hurtbox_area_entered(area):
+	get_tree().call_group(\"player_overworld\", \"is_talking_true\")
+	get_tree().call_group(\"player_overworld\", \"hitbox_disabled\")
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	if status == false:
+		Dialogic.start(\"tangga\")
+	elif status == true:
+		Dialogic.start(\"has_interacted\")
+
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().call_group(\"player_overworld\", \"is_talking_false\")
+	status = true
+	GlobalEventListener.stepladder_interacted()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toule"]
+size = Vector2(33, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hg15"]
+size = Vector2(70, 55)
+
+[node name="object_stepladder" type="StaticBody2D"]
+script = SubResource("GDScript_pyni6")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-4, 11)
+scale = Vector2(3, 3)
+texture = ExtResource("1_4aydn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 6.28319
+texture = ExtResource("2_mfhuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 10.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_toule")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_yt40q")]
+position = Vector2(-2, 2)
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_4hg15")
+debug_color = Color(0.768627, 0, 0, 0.419608)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

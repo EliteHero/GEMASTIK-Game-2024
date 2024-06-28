@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://65qkul6p2fer"]
+
+[ext_resource type="PackedScene" uid="uid://d4bv7toxa77yo" path="res://world/hallway.tscn" id="1_vktb3"]
+[ext_resource type="Script" path="res://cutscenes/cutscene_chapter_2_1.gd" id="1_wprgt"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_he8hn"]
+[ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_5fv6l"]
+[ext_resource type="PackedScene" uid="uid://dticm62wtwt0e" path="res://world/object_kursi_roda.tscn" id="5_2vtnu"]
+[ext_resource type="PackedScene" uid="uid://oypvrld8t1r0" path="res://world/object_stepladder.tscn" id="6_o6qun"]
+
+[node name="cutscene_chapter2_1" type="Node2D"]
+script = ExtResource("1_wprgt")
+
+[node name="Hallway" parent="." instance=ExtResource("1_vktb3")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_he8hn")]
+position = Vector2(-143, 1)
+
+[node name="Nova" parent="." instance=ExtResource("3_5fv6l")]
+position = Vector2(-173, 1)
+
+[node name="object_kursi_roda" parent="." instance=ExtResource("5_2vtnu")]
+position = Vector2(61, 72)
+
+[node name="object_stepladder" parent="." instance=ExtResource("6_o6qun")]
+position = Vector2(-261, 63)

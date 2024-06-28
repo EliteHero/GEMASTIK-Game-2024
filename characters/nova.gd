@@ -59,6 +59,10 @@ func look_down():
 	state = IDLE
 	velocity = Vector2(0, 1)
 
+func look_right():
+	state = IDLE
+	velocity = Vector2(1,0)
+
 func look_left():
 	velocity = Vector2(-1, 0)
 	await get_tree().create_timer(0.0001).timeout

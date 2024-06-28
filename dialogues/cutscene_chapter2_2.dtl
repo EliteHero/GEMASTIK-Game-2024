@@ -1,0 +1,8 @@
+"Robot Penjaga" (mood1): [color=red]BERHENTI DI SITU![/color]
+[signal arg="color off"]
+[wait time="1.0"]
+Nova (mood1): Hey tunggu! Dia tidak bersalah!
+"Robot Penjaga" (mood1): [color=red]APA?! APA KAMU BERPIHAK DENGAN DIA?! KAMU JUGA AKAN KAMI BAWA![/color]
+Nova (mood1): Baiklah Amara, sepertinya kita tidak bisa mengubah pikiran mereka
+Nova (mood1): Aku harap kamu siap untuk berhadapan dengan Kepala Robot
+Amara (mood1): Heh, aku selalu siap!

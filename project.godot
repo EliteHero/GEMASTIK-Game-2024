@@ -33,6 +33,7 @@ directories/dch_directory={
 "Amara": "res://dialogues/dl_characters/Amara.dch",
 "Nova": "res://dialogues/dl_characters/Nova.dch",
 "Robot": "res://dialogues/dl_characters/Robot.dch",
+"Robot Penjaga": "res://dialogues/dl_characters/Robot Penjaga.dch",
 "unknown": "res://dialogues/dl_characters/unknown.dch"
 }
 directories/dtl_directory={
@@ -40,6 +41,7 @@ directories/dtl_directory={
 "adu_argumen_2_rest": "res://dialogues/adu_argumen_2_rest.dtl",
 "boundary1": "res://dialogues/boundary1.dtl",
 "corpse": "res://dialogues/corpse.dtl",
+"cutscen_chapter2_1": "res://dialogues/cutscen_chapter2_1.dtl",
 "cutscene1": "res://dialogues/cutscene1.dtl",
 "cutscene10": "res://dialogues/cutscene10.dtl",
 "cutscene11": "res://dialogues/cutscene11.dtl",
@@ -51,10 +53,18 @@ directories/dtl_directory={
 "cutscene7": "res://dialogues/cutscene7.dtl",
 "cutscene8": "res://dialogues/cutscene8.dtl",
 "cutscene9": "res://dialogues/cutscene9.dtl",
+"cutscene_chapter2_2": "res://dialogues/cutscene_chapter2_2.dtl",
 "has_interacted": "res://dialogues/has_interacted.dtl",
+"inovasi": "res://dialogues/inovasi.dtl",
 "interactable_nova1": "res://dialogues/interactable_nova1.dtl",
 "interactable_nova2": "res://dialogues/interactable_nova2.dtl",
 "interlude": "res://dialogues/interlude.dtl",
+"kursiroda": "res://dialogues/kursiroda.dtl",
+"log": "res://dialogues/log.dtl",
+"serpihan": "res://dialogues/serpihan.dtl",
+"tangga": "res://dialogues/tangga.dtl",
+"tiang_cutscene": "res://dialogues/tiang_cutscene.dtl",
+"tiang_cutscene2": "res://dialogues/tiang_cutscene2.dtl",
 "time_panel": "res://dialogues/time_panel.dtl"
 }
 layout/style_list=["res://dialogues/dl_styles/default.tres"]

@@ -13,10 +13,24 @@ var has_interacted_corpse: bool = false
 var has_interacted_nova: bool = false
 var player_instance = null
 
+#Chapter 2 items
+var has_interacted_kursi_roda: bool = false
+var has_interacted_tiang: bool = false
+var has_interacted_serpihan: bool = false
+var has_interacted_log: bool = false
+var has_interacted_inovasi: bool = false
+var has_interacted_stepladder: bool = false
+
 #pause button states
 var btn_time_panel_disabled = true
 var btn_robot_rusak_disabled = true
 var btn_data_jumlah_disabled = true
+var btn_kursi_roda_disabled = true
+var btn_tiang_disabled = true
+var btn_serpihan_disabled = true
+var btn_log_disabled = true
+var btn_jejak_roda_disabled = true
+var btn_inovasi_disabled = true
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -105,3 +119,37 @@ func debat_win():
 	TransitionBlack.transition()
 	await TransitionBlack.on_transition_finished
 	get_tree().change_scene_to_file(after_battle_scene)
+
+#Chapter 2 items
+func check_interaction_status2():
+	if has_interacted_kursi_roda and has_interacted_tiang and has_interacted_serpihan and has_interacted_log and has_interacted_inovasi:
+		get_tree().call_group("Main2", "all_objects_interacted")
+
+func kursi_roda_interacted():
+	has_interacted_kursi_roda = true
+	btn_kursi_roda_disabled = false
+	check_interaction_status2()
+	
+func tiang_interacted():
+	has_interacted_tiang = true
+	btn_tiang_disabled = false
+	check_interaction_status2()
+	
+func serpihan_interacted():
+	has_interacted_serpihan = true
+	btn_serpihan_disabled = false
+	check_interaction_status2()
+	
+func stepladder_interacted():
+	has_interacted_stepladder = true
+	
+func log_interacted():
+	has_interacted_log = true
+	btn_log_disabled = false
+	btn_jejak_roda_disabled = false
+	check_interaction_status2()
+	
+func inovasi_interacted():
+	has_interacted_inovasi = true
+	btn_inovasi_disabled = false
+	check_interaction_status2()

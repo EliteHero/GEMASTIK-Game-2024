@@ -7,6 +7,8 @@
 [sub_resource type="GDScript" id="GDScript_0vlwu"]
 script/source = "extends Node2D
 
+@onready var color_rect = $CanvasLayer/ColorRect
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalMusic.play_exploration()
@@ -31,7 +33,12 @@ func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	TransitionBlack.transition()
 	await TransitionBlack.on_transition_finished
-	get_tree().change_scene_to_file(\"res://other_assets/demo_screen.tscn\")
+	GlobalMusic.stop_exploration()
+	color_rect.visible = true
+	await get_tree().create_timer(1.5).timeout
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().change_scene_to_file(\"res://cutscenes/cutscene_chapter_2_1.tscn\")
 "
 
 [node name="cutscene_12" type="Node2D"]
@@ -44,3 +51,14 @@ position = Vector2(3, 172)
 
 [node name="Nova" parent="." instance=ExtResource("3_7ghi8")]
 position = Vector2(2, 128)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,228 @@
+[gd_scene load_steps=18 format=3 uid="uid://ic886sd5hbft"]
+
+[ext_resource type="Texture2D" uid="uid://8h00sat6g0ln" path="res://Shadows/SmallShadow.png" id="1_2vbdx"]
+[ext_resource type="Texture2D" uid="uid://cct7iqc1808xd" path="res://characters/chara_sprites/Nova-jahat.png" id="2_y6w4s"]
+
+[sub_resource type="GDScript" id="GDScript_nbh50"]
+script/source = "extends CharacterBody2D
+
+enum {
+	MOVE,
+	IDLE
+}
+
+# Speed of the NPC
+var speed = 100
+# Timer to control the duration of movement
+var move_timer: Timer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get(\"parameters/playback\")
+var state = MOVE
+
+func _ready():
+	animationTree.active = true
+	move_timer = Timer.new()
+	move_timer.one_shot = true
+	move_timer.connect(\"timeout\", Callable(self, \"_on_move_timer_timeout\"))
+	add_child(move_timer)
+
+func _process(delta):
+	if state == MOVE and velocity != Vector2.ZERO:
+		move_and_slide()
+	
+	animationTree.set(\"parameters/Move/blend_position\", velocity)
+	animationState.travel(\"Move\")
+
+# Function to move right for a given duration
+func move_right(duration):
+	velocity = Vector2(speed, 0)
+	start_move_timer(duration)
+
+# Function to move left for a given duration
+func move_left(duration):
+	velocity = Vector2(-speed, 0)
+	start_move_timer(duration)
+
+# Function to move down for a given duration
+func move_down(duration):
+	velocity = Vector2(0, speed)
+	start_move_timer(duration)
+
+# Function to move up for a given duration
+func move_up(duration):
+	velocity = Vector2(0, -speed)
+	start_move_timer(duration)
+
+# Function to start the move timer
+func start_move_timer(duration):
+	move_timer.start(duration)
+
+# Function called when the move timer times out
+func _on_move_timer_timeout():
+	velocity = Vector2.ZERO  # Stop movement
+
+func look_down():
+	state = IDLE
+	velocity = Vector2(0, 1)
+
+func look_right():
+	state = IDLE
+	velocity = Vector2(1,0)
+
+func look_left():
+	velocity = Vector2(-1, 0)
+	await get_tree().create_timer(0.0001).timeout
+	velocity = Vector2.ZERO
+"
+
+[sub_resource type="Animation" id="Animation_plhxl"]
+resource_name = "Down"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_fpe1a"]
+resource_name = "Left"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_tg6m6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i116u"]
+resource_name = "Right"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 15, 14]
+}
+
+[sub_resource type="Animation" id="Animation_fvk7y"]
+resource_name = "Up"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 7, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0mrci"]
+_data = {
+"Down": SubResource("Animation_plhxl"),
+"Left": SubResource("Animation_fpe1a"),
+"RESET": SubResource("Animation_tg6m6"),
+"Right": SubResource("Animation_i116u"),
+"Up": SubResource("Animation_fvk7y")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6vc4"]
+animation = &"Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3udtc"]
+animation = &"Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kee2h"]
+animation = &"Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a7bwi"]
+animation = &"Up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3aqb0"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_u6vc4")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_3udtc")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_kee2h")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_a7bwi")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ite5v"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wvu5i"]
+states/Move/node = SubResource("AnimationNodeBlendSpace2D_3aqb0")
+states/Move/position = Vector2(354, 100)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_ite5v")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rj2c5"]
+radius = 4.8
+
+[node name="Robot_penjaga" type="CharacterBody2D" groups=["robot_penjaga"]]
+script = SubResource("GDScript_nbh50")
+
+[node name="Shadow" type="Sprite2D" parent="." groups=["Nova"]]
+position = Vector2(0, 15.6)
+texture = ExtResource("1_2vbdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y6w4s")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0mrci")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_wvu5i")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = Vector2(-0.00153375, 0.0132158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.2)
+shape = SubResource("CircleShape2D_rj2c5")

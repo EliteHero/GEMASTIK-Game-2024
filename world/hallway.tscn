@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4bv7toxa77yo"]
+
+[ext_resource type="Texture2D" uid="uid://614kvistk5ib" path="res://world/world_assets/hallway_sprite.png" id="1_w54mc"]
+[ext_resource type="PackedScene" uid="uid://bbry38drvlow1" path="res://world/object_log.tscn" id="4_uwj4l"]
+[ext_resource type="PackedScene" uid="uid://c1ver6qr6xryi" path="res://world/object_tiang.tscn" id="5_7mvl8"]
+[ext_resource type="PackedScene" uid="uid://cr6x7p7y636ig" path="res://world/object_inovasi.tscn" id="5_infm2"]
+[ext_resource type="PackedScene" uid="uid://ddmmy3gn5dfw5" path="res://world/object_serpihan.tscn" id="6_1dgxp"]
+
+[node name="Hallway" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w54mc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-379, 1, 372, 3, 369, 88, -302, 89, -351, 4, -391, 15, -310, 126, 418, 115, 421, -14, -390, -14)
+
+[node name="object_inovasi" parent="." instance=ExtResource("5_infm2")]
+position = Vector2(119, -17)
+
+[node name="object_log" parent="." instance=ExtResource("4_uwj4l")]
+position = Vector2(-128, -5)
+scale = Vector2(3, 3)
+
+[node name="object_tiang" parent="." instance=ExtResource("5_7mvl8")]
+position = Vector2(252, -38)
+scale = Vector2(4, 4)
+
+[node name="object_serpihan" parent="." instance=ExtResource("6_1dgxp")]
+position = Vector2(252, 97)
+scale = Vector2(4, 4)

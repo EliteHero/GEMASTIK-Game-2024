@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ver6qr6xryi"]
+
+[sub_resource type="GDScript" id="GDScript_sxngg"]
+script/source = "extends Area2D
+
+var status: bool
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	status = GlobalEventListener.has_interacted_tiang
+
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().call_group(\"player_overworld\", \"is_talking_false\")
+	status = true
+	GlobalEventListener.tiang_interacted()
+
+
+func _on_area_entered(area):
+	get_tree().call_group(\"player_overworld\", \"is_talking_true\")
+	get_tree().call_group(\"player_overworld\", \"hitbox_disabled\")
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	if status == false:
+		Dialogic.start(\"tiang_cutscene\")
+	elif status == true:
+		Dialogic.start(\"has_interacted\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70d6p"]
+
+[node name="object_tiang" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 4
+script = SubResource("GDScript_sxngg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_70d6p")
+debug_color = Color(0.972549, 0, 0, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

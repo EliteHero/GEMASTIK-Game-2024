@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c22t7n26w6dck"]
+
+[ext_resource type="Script" path="res://cutscenes/tiang_cutscene_2.gd" id="1_7wsfl"]
+[ext_resource type="Texture2D" uid="uid://b8mcsap730q7h" path="res://cutscenes/cutscene_assets/tiang_cutscene_2.png" id="1_awrkx"]
+
+[node name="tiang_cutscene2" type="CanvasLayer"]
+script = ExtResource("1_7wsfl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_awrkx")
+expand_mode = 2

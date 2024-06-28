@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2qhowshnsf1w"]
+
+[ext_resource type="Script" path="res://world/main_2_2.gd" id="1_egwep"]
+[ext_resource type="PackedScene" uid="uid://d4bv7toxa77yo" path="res://world/hallway.tscn" id="1_kabpq"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_dndn1"]
+[ext_resource type="PackedScene" uid="uid://dticm62wtwt0e" path="res://world/object_kursi_roda.tscn" id="4_y0a5y"]
+[ext_resource type="PackedScene" uid="uid://oypvrld8t1r0" path="res://world/object_stepladder.tscn" id="5_e30ea"]
+
+[node name="main_2_2" type="Node2D" groups=["Main2"]]
+script = ExtResource("1_egwep")
+
+[node name="Hallway" parent="." instance=ExtResource("1_kabpq")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_dndn1")]
+position = Vector2(249, -3)
+
+[node name="object_kursi_roda" parent="." instance=ExtResource("4_y0a5y")]
+position = Vector2(61, 72)
+
+[node name="object_stepladder" parent="." instance=ExtResource("5_e30ea")]
+position = Vector2(-261, 63)

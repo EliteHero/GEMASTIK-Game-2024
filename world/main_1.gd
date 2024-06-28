@@ -17,5 +17,5 @@ func _on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	TransitionBlack.transition()
 	await TransitionBlack.on_transition_finished
-	get_tree().call_group("player_overworld", "set_player_position", 40, 850)
+	get_tree().call_group("player_overworld", "set_player_position", 7, 213)
 	get_tree().call_group("player_overworld", "change_state", "MOVE")

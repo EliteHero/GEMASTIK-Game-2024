@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpe1eh4wrg8nh"]
+
+[ext_resource type="PackedScene" uid="uid://d4bv7toxa77yo" path="res://world/hallway.tscn" id="1_frine"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="2_e3ohn"]
+[ext_resource type="PackedScene" uid="uid://by7dwmvmydch" path="res://characters/nova.tscn" id="3_s6n1p"]
+[ext_resource type="PackedScene" uid="uid://dticm62wtwt0e" path="res://world/object_kursi_roda.tscn" id="4_67wwt"]
+[ext_resource type="PackedScene" uid="uid://oypvrld8t1r0" path="res://world/object_stepladder.tscn" id="5_161gi"]
+[ext_resource type="PackedScene" uid="uid://ic886sd5hbft" path="res://characters/robot_penjaga.tscn" id="6_a4osi"]
+[ext_resource type="AudioStream" uid="uid://u0qon8i58j2l" path="res://other_assets/musics/glitch.ogg" id="7_gdfwy"]
+
+[sub_resource type="GDScript" id="GDScript_xsxd1"]
+script/source = "extends Node2D
+
+@onready var robot1 = $Robot_penjaga3
+@onready var robot2 = $Robot_penjaga4
+@onready var color_rect = $CanvasLayer/ColorRect
+@onready var music = $AudioStreamPlayer2D
+
+func _ready():
+	get_tree().call_group(\"player_overworld\", \"change_state\", \"CUTSCENE\")
+	change_player_anim(\"RIGHT\")
+	robot1.look_right()
+	robot2.look_right()
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.signal_event.connect(_on_dialogic_text_signal)
+	Dialogic.start(\"cutscene_chapter2_2\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func change_player_anim(state):
+	match state:
+		\"RIGHT\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"RIGHT\")
+		\"LEFT\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"LEFT\")
+		\"UP\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"UP\")
+		\"DOWN\":
+			get_tree().call_group(\"player_overworld\", \"cutscene_move\", \"DOWN\")
+			
+func _on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	TransitionBlack.transition()
+	await TransitionBlack.on_transition_finished
+	get_tree().change_scene_to_file(\"res://other_assets/demo_screen.tscn\")
+
+func _on_dialogic_text_signal(argument: String):
+	if argument == \"color off\":
+		TransitionBlack.transition()
+		await TransitionBlack.on_transition_finished
+		music.play()
+		color_rect.visible = false
+"
+
+[node name="cutscene_chapter2_2" type="Node2D"]
+script = SubResource("GDScript_xsxd1")
+
+[node name="Hallway" parent="." instance=ExtResource("1_frine")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("2_e3ohn")]
+position = Vector2(263, 31)
+
+[node name="Nova" parent="." instance=ExtResource("3_s6n1p")]
+position = Vector2(237, 31)
+
+[node name="object_kursi_roda" parent="." instance=ExtResource("4_67wwt")]
+position = Vector2(61, 72)
+
+[node name="object_stepladder" parent="." instance=ExtResource("5_161gi")]
+position = Vector2(-261, 63)
+
+[node name="Robot_penjaga" parent="." instance=ExtResource("6_a4osi")]
+position = Vector2(295, 17)
+
+[node name="Robot_penjaga2" parent="." instance=ExtResource("6_a4osi")]
+position = Vector2(296, 47)
+
+[node name="Robot_penjaga3" parent="." instance=ExtResource("6_a4osi")]
+position = Vector2(204, 17)
+
+[node name="Robot_penjaga4" parent="." instance=ExtResource("6_a4osi")]
+position = Vector2(205, 47)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gdfwy")

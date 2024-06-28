@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0kyqw2elv7xg"]
+
+[ext_resource type="Texture2D" uid="uid://cbrswunir0r5q" path="res://world/world_assets/ruangan-therac.png" id="1_p0dul"]
+
+[node name="Court" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p0dul")

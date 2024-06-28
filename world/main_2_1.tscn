@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc7t0o116ogo0"]
+
+[ext_resource type="Script" path="res://world/main_2_1.gd" id="1_hfqs4"]
+[ext_resource type="PackedScene" uid="uid://d4bv7toxa77yo" path="res://world/hallway.tscn" id="2_mfjaa"]
+[ext_resource type="PackedScene" uid="uid://c40iw0eqnad4w" path="res://characters/amara_overworld.tscn" id="3_b0l55"]
+[ext_resource type="PackedScene" uid="uid://dticm62wtwt0e" path="res://world/object_kursi_roda.tscn" id="4_qh2dm"]
+[ext_resource type="PackedScene" uid="uid://oypvrld8t1r0" path="res://world/object_stepladder.tscn" id="5_khd12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itvou"]
+size = Vector2(69, 123)
+
+[node name="main2_1" type="Node2D"]
+script = ExtResource("1_hfqs4")
+
+[node name="Hallway" parent="." instance=ExtResource("2_mfjaa")]
+
+[node name="amara_overworld" parent="." instance=ExtResource("3_b0l55")]
+position = Vector2(-152, -3)
+
+[node name="trigger" type="Area2D" parent="."]
+position = Vector2(187, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger"]
+position = Vector2(9.5, -6.5)
+shape = SubResource("RectangleShape2D_itvou")
+
+[node name="object_kursi_roda" parent="." instance=ExtResource("4_qh2dm")]
+position = Vector2(61, 72)
+
+[node name="object_stepladder" parent="." instance=ExtResource("5_khd12")]
+position = Vector2(-261, 63)
+
+[connection signal="body_entered" from="trigger" to="." method="_on_trigger_body_entered"]

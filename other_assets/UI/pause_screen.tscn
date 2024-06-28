@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://crorlt0bjpugl"]
+[gd_scene load_steps=63 format=3 uid="uid://crorlt0bjpugl"]
 
 [ext_resource type="Texture2D" uid="uid://cdysdx00j67l6" path="res://other_assets/UI/pause_screen.png" id="1_hwc3n"]
 [ext_resource type="Script" path="res://other_assets/UI/pause_screen.gd" id="1_tllp7"]
@@ -6,12 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://bh74ehsgpwmok" path="res://other_assets/UI/button_sprites/kembali_btn.png" id="2_g25nj"]
 [ext_resource type="Texture2D" uid="uid://b0tmoh43hbp71" path="res://other_assets/UI/item_none.png" id="3_2dkpg"]
 [ext_resource type="Texture2D" uid="uid://crxwpuxhpj8a4" path="res://other_assets/UI/button_sprites/keluar_btn.png" id="3_in6bl"]
+[ext_resource type="Texture2D" uid="uid://bln55dymegfeg" path="res://other_assets/UI/Items_sprite/wheelchair_btn.png" id="5_yyo20"]
 [ext_resource type="Texture2D" uid="uid://g0sglkf6k3im" path="res://other_assets/UI/button_sprites/item container.png" id="6_2014i"]
 [ext_resource type="Texture2D" uid="uid://boh1kkol0brlx" path="res://other_assets/UI/Items_sprite/data_jumlah.png" id="6_llanl"]
 [ext_resource type="Texture2D" uid="uid://cisjg88o1b4e4" path="res://other_assets/UI/Items_sprite/broken_robot.png" id="7_6mhi7"]
 [ext_resource type="FontFile" uid="uid://cuck8i8knhtlt" path="res://other_assets/fonts/VCRosdNEUE.ttf" id="7_a4hq1"]
+[ext_resource type="Texture2D" uid="uid://l2olp3k6t2rl" path="res://other_assets/UI/Items_sprite/log_btn.png" id="10_fy15h"]
+[ext_resource type="Texture2D" uid="uid://digbykxbvbm4g" path="res://other_assets/UI/Items_sprite/driftmark_btn.png" id="11_5byl1"]
 [ext_resource type="FontFile" uid="uid://beag7b70mq6m1" path="res://other_assets/fonts/monogram.ttf" id="11_pus6m"]
+[ext_resource type="Texture2D" uid="uid://bljvl268yn1uy" path="res://other_assets/UI/Items_sprite/inovasi_btn.png" id="12_3vy7q"]
 [ext_resource type="AudioStream" uid="uid://bw0i70dablwef" path="res://other_assets/sfx/btn_sfx2.ogg" id="12_raipv"]
+[ext_resource type="Texture2D" uid="uid://ca438emfqppru" path="res://other_assets/UI/Items_sprite/tiang_btn.png" id="13_nwh0u"]
+[ext_resource type="Texture2D" uid="uid://c17el5ondq6pq" path="res://other_assets/UI/Items_sprite/serpihan_btn.png" id="14_fe5hf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufwkh"]
 texture = ExtResource("2_g25nj")
@@ -65,6 +71,78 @@ texture = ExtResource("6_llanl")
 texture = ExtResource("6_llanl")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtjux"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0x3bc"]
+texture = ExtResource("5_yyo20")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e81td"]
+texture = ExtResource("5_yyo20")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c0go"]
+texture = ExtResource("5_yyo20")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hyy"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgq0l"]
+texture = ExtResource("10_fy15h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i1atm"]
+texture = ExtResource("10_fy15h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4roj8"]
+texture = ExtResource("10_fy15h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p375n"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owat6"]
+texture = ExtResource("11_5byl1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igpih"]
+texture = ExtResource("11_5byl1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mh166"]
+texture = ExtResource("11_5byl1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huyoy"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjgy6"]
+texture = ExtResource("12_3vy7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyl0j"]
+texture = ExtResource("12_3vy7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2s3q"]
+texture = ExtResource("12_3vy7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1acr"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtjh"]
+texture = ExtResource("13_nwh0u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqljr"]
+texture = ExtResource("13_nwh0u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ej1l7"]
+texture = ExtResource("13_nwh0u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rx3j"]
+texture = ExtResource("3_2dkpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmptm"]
+texture = ExtResource("14_fe5hf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d4yn4"]
+texture = ExtResource("14_fe5hf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6hj3"]
+texture = ExtResource("14_fe5hf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03skb"]
 texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxkph"]
@@ -157,71 +235,65 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_b80ey")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_77y7f")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_dtjux")
 
-[node name="time_panel_btn4" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="kursi_roda_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_0x3bc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e81td")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4c0go")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_n5hyy")
 
-[node name="time_panel_btn5" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="log_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_vgq0l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i1atm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4roj8")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_p375n")
 
-[node name="time_panel_btn6" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="jejak_roda_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_owat6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_igpih")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mh166")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_huyoy")
 
-[node name="time_panel_btn7" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="inovasi_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjgy6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eyl0j")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f2s3q")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_y1acr")
 
-[node name="time_panel_btn8" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="tiang_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_yxtjh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yqljr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ej1l7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7rx3j")
 
-[node name="time_panel_btn9" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="serpihan_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
-disabled = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_jmptm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d4yn4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e6hj3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_03skb")
 
 [node name="time_panel_btn10" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -286,3 +358,9 @@ stream = ExtResource("12_raipv")
 [connection signal="pressed" from="VBoxContainer/GridContainer/time_panel_btn" to="." method="_on_time_panel_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/robot_rusak_btn" to="." method="_on_robot_rusak_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/data_jumlah_btn" to="." method="_on_data_jumlah_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/kursi_roda_btn" to="." method="_on_kursi_roda_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/log_btn" to="." method="_on_log_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/jejak_roda_btn" to="." method="_on_jejak_roda_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/inovasi_btn" to="." method="_on_inovasi_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/tiang_btn" to="." method="_on_tiang_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/serpihan_btn" to="." method="_on_serpihan_btn_pressed"]

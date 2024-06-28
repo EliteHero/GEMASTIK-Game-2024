@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbry38drvlow1"]
+
+[ext_resource type="Script" path="res://world/object_log.gd" id="1_18nbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70d6p"]
+
+[node name="object_log" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_18nbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_70d6p")
+debug_color = Color(0.972549, 0, 0, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

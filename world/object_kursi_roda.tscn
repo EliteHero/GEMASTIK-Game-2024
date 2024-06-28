@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dticm62wtwt0e"]
+
+[ext_resource type="Texture2D" uid="uid://dmpgyk7ie1u71" path="res://world/object_assets/wheelchair.png" id="1_2y664"]
+[ext_resource type="Script" path="res://world/object_kursi_roda.gd" id="1_wksdl"]
+[ext_resource type="PackedScene" uid="uid://dgiksn2dnfplr" path="res://effect_areas/hurtbox.tscn" id="2_5iqke"]
+[ext_resource type="Texture2D" uid="uid://7jt2w7cb8bi2" path="res://Shadows/LargeShadow.png" id="2_7sv3r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3yl5"]
+radius = 12.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hg15"]
+size = Vector2(70, 55)
+
+[node name="object_kursi_roda" type="StaticBody2D"]
+script = ExtResource("1_wksdl")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-2, 7)
+texture = ExtResource("2_7sv3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 6.28319
+texture = ExtResource("1_2y664")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j3yl5")
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_5iqke")]
+position = Vector2(-2, 2)
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_4hg15")
+debug_color = Color(0.768627, 0, 0, 0.419608)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

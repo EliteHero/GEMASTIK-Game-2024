@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://xs0e17nsk1aa"]
+[gd_scene load_steps=10 format=3 uid="uid://xs0e17nsk1aa"]
 
 [ext_resource type="AudioStream" uid="uid://bojr5sh3wjgf5" path="res://other_assets/musics/exploration_music.ogg" id="1_4jt8j"]
 [ext_resource type="Script" path="res://other_assets/musics/Global_music.gd" id="2_py3pe"]
 [ext_resource type="AudioStream" uid="uid://u23qt1gx668j" path="res://other_assets/musics/battle_music.ogg" id="3_ogjjb"]
+[ext_resource type="AudioStream" uid="uid://copvq8b6jsho6" path="res://other_assets/musics/hallway_music.ogg" id="4_5cwog"]
 
 [sub_resource type="Animation" id="Animation_f27v7"]
 length = 0.001
@@ -25,6 +26,18 @@ tracks/1/path = NodePath("battle_music:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hallway_music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -62,11 +75,27 @@ tracks/0/keys = {
 "values": [0.0, -80.0]
 }
 
+[sub_resource type="Animation" id="Animation_kp1y5"]
+resource_name = "hallway_music_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hallway_music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4wbbt"]
 _data = {
 "RESET": SubResource("Animation_f27v7"),
 "battle_music_off": SubResource("Animation_kyjb7"),
-"exp_music_off": SubResource("Animation_48c6e")
+"exp_music_off": SubResource("Animation_48c6e"),
+"hallway_music_off": SubResource("Animation_kp1y5")
 }
 
 [node name="exploration_music" type="AudioStreamPlayer2D"]
@@ -76,6 +105,9 @@ script = ExtResource("2_py3pe")
 
 [node name="battle_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ogjjb")
+
+[node name="hallway_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5cwog")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
