@@ -13,4 +13,3 @@ func _process(delta):
 
 func _on_body_entered(body):
 	get_tree().call_group("enemy", "on_slow_area")
-

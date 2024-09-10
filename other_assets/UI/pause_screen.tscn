@@ -19,17 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://ca438emfqppru" path="res://other_assets/UI/Items_sprite/tiang_btn.png" id="13_nwh0u"]
 [ext_resource type="Texture2D" uid="uid://c17el5ondq6pq" path="res://other_assets/UI/Items_sprite/serpihan_btn.png" id="14_fe5hf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufwkh"]
-texture = ExtResource("2_g25nj")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_duie8"]
 texture = ExtResource("2_g25nj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3luho"]
 texture = ExtResource("2_g25nj")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ss4b"]
-texture = ExtResource("3_in6bl")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufwkh"]
+texture = ExtResource("2_g25nj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjcse"]
 texture = ExtResource("3_in6bl")
@@ -37,8 +34,11 @@ texture = ExtResource("3_in6bl")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1x25e"]
 texture = ExtResource("3_in6bl")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xa0ef"]
-texture = ExtResource("2_4g4uo")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ss4b"]
+texture = ExtResource("3_in6bl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qq5ic"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gn8xh"]
 texture = ExtResource("2_4g4uo")
@@ -46,11 +46,11 @@ texture = ExtResource("2_4g4uo")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwnf6"]
 texture = ExtResource("2_4g4uo")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qq5ic"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xa0ef"]
+texture = ExtResource("2_4g4uo")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp2oh"]
-texture = ExtResource("7_6mhi7")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5ylu"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_636fj"]
 texture = ExtResource("7_6mhi7")
@@ -58,11 +58,11 @@ texture = ExtResource("7_6mhi7")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1ukm"]
 texture = ExtResource("7_6mhi7")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5ylu"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp2oh"]
+texture = ExtResource("7_6mhi7")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifowl"]
-texture = ExtResource("6_llanl")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtjux"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b80ey"]
 texture = ExtResource("6_llanl")
@@ -70,11 +70,11 @@ texture = ExtResource("6_llanl")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77y7f"]
 texture = ExtResource("6_llanl")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtjux"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifowl"]
+texture = ExtResource("6_llanl")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0x3bc"]
-texture = ExtResource("5_yyo20")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hyy"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e81td"]
 texture = ExtResource("5_yyo20")
@@ -82,11 +82,11 @@ texture = ExtResource("5_yyo20")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c0go"]
 texture = ExtResource("5_yyo20")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5hyy"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0x3bc"]
+texture = ExtResource("5_yyo20")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgq0l"]
-texture = ExtResource("10_fy15h")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p375n"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i1atm"]
 texture = ExtResource("10_fy15h")
@@ -94,11 +94,11 @@ texture = ExtResource("10_fy15h")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4roj8"]
 texture = ExtResource("10_fy15h")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p375n"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgq0l"]
+texture = ExtResource("10_fy15h")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owat6"]
-texture = ExtResource("11_5byl1")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huyoy"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igpih"]
 texture = ExtResource("11_5byl1")
@@ -106,11 +106,11 @@ texture = ExtResource("11_5byl1")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mh166"]
 texture = ExtResource("11_5byl1")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huyoy"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owat6"]
+texture = ExtResource("11_5byl1")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjgy6"]
-texture = ExtResource("12_3vy7q")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1acr"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyl0j"]
 texture = ExtResource("12_3vy7q")
@@ -118,11 +118,11 @@ texture = ExtResource("12_3vy7q")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2s3q"]
 texture = ExtResource("12_3vy7q")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1acr"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjgy6"]
+texture = ExtResource("12_3vy7q")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtjh"]
-texture = ExtResource("13_nwh0u")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rx3j"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqljr"]
 texture = ExtResource("13_nwh0u")
@@ -130,11 +130,11 @@ texture = ExtResource("13_nwh0u")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ej1l7"]
 texture = ExtResource("13_nwh0u")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rx3j"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtjh"]
+texture = ExtResource("13_nwh0u")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmptm"]
-texture = ExtResource("14_fe5hf")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03skb"]
+texture = ExtResource("3_2dkpg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d4yn4"]
 texture = ExtResource("14_fe5hf")
@@ -142,8 +142,8 @@ texture = ExtResource("14_fe5hf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6hj3"]
 texture = ExtResource("14_fe5hf")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03skb"]
-texture = ExtResource("3_2dkpg")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmptm"]
+texture = ExtResource("14_fe5hf")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxkph"]
 texture = ExtResource("6_2014i")
@@ -186,16 +186,16 @@ custom_minimum_size = Vector2(78, 29)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_ufwkh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_duie8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3luho")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufwkh")
 
 [node name="quit_btn" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(78, 29)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_7ss4b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xjcse")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1x25e")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7ss4b")
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -210,100 +210,100 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 
 [node name="robot_rusak_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_kp2oh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m5ylu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_636fj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w1ukm")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_m5ylu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kp2oh")
 
 [node name="data_jumlah_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_ifowl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dtjux")
 theme_override_styles/hover = SubResource("StyleBoxTexture_b80ey")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_77y7f")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_dtjux")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ifowl")
 
 [node name="kursi_roda_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_0x3bc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_n5hyy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_e81td")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4c0go")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_n5hyy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0x3bc")
 
 [node name="log_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_vgq0l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_p375n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i1atm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4roj8")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_p375n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vgq0l")
 
 [node name="jejak_roda_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_owat6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_huyoy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_igpih")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mh166")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_huyoy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_owat6")
 
 [node name="inovasi_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_yjgy6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_y1acr")
 theme_override_styles/hover = SubResource("StyleBoxTexture_eyl0j")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f2s3q")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_y1acr")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjgy6")
 
 [node name="tiang_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_yxtjh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7rx3j")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yqljr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ej1l7")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_7rx3j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yxtjh")
 
 [node name="serpihan_btn" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_jmptm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_03skb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d4yn4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_e6hj3")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_03skb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jmptm")
 
 [node name="time_panel_btn10" type="Button" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gn8xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dwnf6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qq5ic")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xa0ef")
 disabled = true
 
 [node name="Panel_name" type="Panel" parent="VBoxContainer"]

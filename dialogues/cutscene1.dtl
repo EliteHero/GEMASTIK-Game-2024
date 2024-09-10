@@ -1,9 +1,8 @@
-unknown (mood2): Ahh, Politeknik Bhaskara...
-unknown (mood2): Sebuah kampus yang berusaha mendidik jiwa-jiwa muda agar bisa menempuh masa depan yang cerah
-unknown (mood2): Membuat dunia agar menjadi lebih baik
-unknown (mood2): Membangun infrastuktur dan sekaligus berusaha menyelamatkan lingkungan hidup
-unknown (mood2): Sayangnya...
+unknown (mood2): The Institute of Bhaskara...
+unknown (mood2):  A place for the youth to create
+unknown (mood2): With the purpose of turning the world to a better place
+unknown (mood2): However...
 [signal arg="stop music"]
-unknown (mood1): [color=red]...semua itu sia-sia[/color]
+unknown (mood1): [color=red]...it is but a pitiful effort[/color]
 [wait time="1.0"]
 [end_timeline]
